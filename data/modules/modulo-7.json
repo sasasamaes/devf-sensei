@@ -1,0 +1,364 @@
+{
+  "id": "modulo-7",
+  "title": "React Avanzado",
+  "number": 7,
+  "description": "Formularios, APIs, Context, Express, bases de datos y deploy. Construye un blog full-stack con React y Node.js.",
+  "weeks": 4,
+  "icon": "atom",
+  "color": "blue",
+  "lessons": [
+    {
+      "id": "lesson-7-1",
+      "moduleId": "modulo-7",
+      "title": "Formularios controlados y React Hook Form",
+      "number": 1,
+      "week": 1,
+      "description": "Aprende a crear formularios controlados en React y a validarlos de forma moderna.",
+      "objectives": [
+        "Entender el uso de React Hook Form.",
+        "Aprender a validar formularios en React.",
+        "Gestionar errores y mostrar feedback.",
+        "Configurar inputs controlados vs no controlados."
+      ],
+      "project": {
+        "title": "Formularios con React Hook Form",
+        "description": "Implementación de formularios en React utilizando React Hook Form y técnicas avanzadas de validación."
+      },
+      "senseiTips": [
+        "Arranca con un ejemplo manual sin React Hook Form, luego compáralo.",
+        "Asegúrate de cubrir register, handleSubmit y errors.",
+        "Haz que cada quien cree su formulario de 'nuevo post'.",
+        "Muestra cómo integrar validaciones requeridas y mínimas.",
+        "Revisa errores con devtools de React Hook Form.",
+        "Si hay tiempo, permite agregar validación de email y longitud.",
+        "Conecta este formulario con un console.log para preparar la integración posterior.",
+        "Recuérdales que este será el formulario que luego enviará datos al backend."
+      ],
+      "readings": [
+        {
+          "title": "React Hook Form y Validación de formularios avanzando",
+          "url": "https://react-hook-form.com/",
+          "description": "Documentación oficial de React Hook Form",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 01",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-2",
+      "moduleId": "modulo-7",
+      "title": "Consumo de APIs con useEffect",
+      "number": 2,
+      "week": 1,
+      "description": "Aprende a consumir APIs con React usando el efecto useEffect.",
+      "objectives": [
+        "Comprender useEffect y su ciclo de vida.",
+        "Hacer fetch de datos desde un backend.",
+        "Manejar loading y errores.",
+        "Renderizar contenido dinámicamente en React."
+      ],
+      "project": {
+        "title": "Blog con datos de API",
+        "description": "Mostrar artículos del blog consumidos desde una API fake (o JSON local)."
+      },
+      "senseiTips": [
+        "Usa jsonplaceholder.typicode.com o un fetch a un archivo local para simular.",
+        "Refuerza el concepto de useEffect con dependencias vacías.",
+        "Introduce loading y manejo de errores simples.",
+        "Haz énfasis en separar lógica y JSX.",
+        "Muestra cómo mapear artículos y renderizar con .map.",
+        "Vincula esta clase con el formulario de la clase anterior.",
+        "Introduce de paso conceptos de diseño con cards o listas."
+      ],
+      "readings": [
+        {
+          "title": "Consumo de APIs (useEffect)",
+          "url": "https://react.dev/reference/react/useEffect",
+          "description": "Documentación oficial de useEffect",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 02",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-3",
+      "moduleId": "modulo-7",
+      "title": "useContext y estado global",
+      "number": 3,
+      "week": 2,
+      "description": "Aprende a usar useContext para compartir estado global entre componentes.",
+      "objectives": [
+        "Comprender el Context API de React.",
+        "Crear y consumir contextos.",
+        "Compartir información global (como el usuario autenticado).",
+        "Implementar un flujo básico de login/logout."
+      ],
+      "project": {
+        "title": "Contexto de usuario",
+        "description": "Crear un contexto de usuario para gestionar login/logout."
+      },
+      "senseiTips": [
+        "Empieza con un contexto simple (Tema o Idioma) para explicar.",
+        "Luego construye un UserContext con estado y función de login/logout.",
+        "Simula login con un botón (no uses Firebase aún).",
+        "Enséñales a usar useContext en componentes hijos.",
+        "Asocia esto al blog: solo usuarios logueados pueden ver ciertas partes.",
+        "Usa localStorage si quieren persistir el estado de usuario.",
+        "Muestra cómo hacer un layout con header que cambia según el estado."
+      ],
+      "readings": [
+        {
+          "title": "State Management with useContext",
+          "url": "https://react.dev/reference/react/useContext",
+          "description": "Documentación oficial de useContext",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 3",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-4",
+      "moduleId": "modulo-7",
+      "title": "Introducción al Backend y API REST",
+      "number": 4,
+      "week": 2,
+      "description": "Introducción conceptual al backend y qué es una API REST.",
+      "objectives": [
+        "Entender qué es un backend y su rol en una app web.",
+        "Comprender la estructura y objetivos de una API REST.",
+        "Diferenciar frontend y backend en una arquitectura moderna.",
+        "Comprender conceptos como rutas, endpoints y JSON."
+      ],
+      "project": {
+        "title": "Maqueta de endpoints REST",
+        "description": "Crear una maqueta de endpoints REST que usará el blog."
+      },
+      "senseiTips": [
+        "Haz que dibujen (en pizarra o Figma) los endpoints del blog.",
+        "Ejemplo: GET /posts, POST /posts, POST /login, etc.",
+        "Haz preguntas como: ¿qué necesita el frontend de un backend?",
+        "Refuercen diferencias entre GET, POST, PUT, DELETE.",
+        "Muestra cómo luce una respuesta JSON.",
+        "Puedes usar Postman para mostrar pruebas de endpoints.",
+        "Si hay tiempo, usa mockapi.io para crear una API falsa."
+      ],
+      "readings": [
+        {
+          "title": "El servidor, ¿qué hay en el back end?",
+          "url": "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps",
+          "description": "Introducción al desarrollo del lado del servidor",
+          "type": "article"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 4",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-5",
+      "moduleId": "modulo-7",
+      "title": "Servidor con Node.js y Express",
+      "number": 5,
+      "week": 3,
+      "description": "Aprende a montar un servidor en Node.js usando Express.",
+      "objectives": [
+        "Configurar un servidor Express básico.",
+        "Crear rutas GET y POST.",
+        "Enviar respuestas en formato JSON.",
+        "Probar endpoints localmente."
+      ],
+      "project": {
+        "title": "Backend base del blog",
+        "description": "Crear el backend base para el blog con Express."
+      },
+      "senseiTips": [
+        "Usa express-generator o crea desde cero con npm init.",
+        "Haz un GET /posts con respuesta estática primero.",
+        "Luego, agrega POST /posts que reciba y muestre datos.",
+        "Enséñales req.body, express.json() y cómo levantar el servidor.",
+        "Conecta con Postman o fetch() desde React si hay tiempo.",
+        "Deja claro que aún no se usa una base de datos.",
+        "Prepara el terreno para el CRUD completo."
+      ],
+      "readings": [
+        {
+          "title": "Creando un servidor con Express",
+          "url": "https://expressjs.com/en/starter/hello-world.html",
+          "description": "Guía oficial de inicio de Express",
+          "type": "tutorial"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 5",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-6",
+      "moduleId": "modulo-7",
+      "title": "CRUD completo con Express",
+      "number": 6,
+      "week": 3,
+      "description": "Aprende a crear un CRUD completo en Express usando un array en memoria.",
+      "objectives": [
+        "Implementar las operaciones Create, Read, Update y Delete.",
+        "Manejar rutas dinámicas con Express.",
+        "Usar métodos HTTP y status codes correctamente.",
+        "Simular persistencia con arrays."
+      ],
+      "project": {
+        "title": "Backend CRUD de artículos",
+        "description": "Backend CRUD de artículos del blog (en memoria)."
+      },
+      "senseiTips": [
+        "Repasa los métodos: GET, POST, PUT, DELETE.",
+        "Usa un array let posts = [ ] para simular la base de datos.",
+        "Muestra cómo manejar req.params para rutas como /posts/:id.",
+        "Permite crear, listar, editar y borrar artículos.",
+        "Usa Postman para probar todos los endpoints.",
+        "Muestra cómo enviar el ID desde el frontend.",
+        "Deja claro que después esto irá a Supabase o Firebase."
+      ],
+      "readings": [
+        {
+          "title": "Qué es un API y qué tipos hay",
+          "url": "https://expressjs.com/en/starter/basic-routing.html",
+          "description": "Rutas básicas en Express",
+          "type": "tutorial"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 6",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-7",
+      "moduleId": "modulo-7",
+      "title": "Supabase y Firebase",
+      "number": 7,
+      "week": 4,
+      "description": "Conoce cómo conectar tu aplicación a servicios como Supabase y Firebase.",
+      "objectives": [
+        "Comprender qué es Supabase y Firebase.",
+        "Conectar una app React a una base de datos remota.",
+        "Realizar operaciones CRUD en tiempo real o por API.",
+        "Usar autenticación básica con estos servicios."
+      ],
+      "project": {
+        "title": "Blog con base de datos real",
+        "description": "Conectar el blog con Supabase (guardar artículos reales)."
+      },
+      "senseiTips": [
+        "Usa Supabase por facilidad con SQL.",
+        "Muestra cómo crear una tabla posts y conectarla con React.",
+        "Configura autenticación simple con email/password.",
+        "Sustituye el backend local por Supabase.",
+        "Muestra cómo usar fetch() con API keys o el cliente de Supabase.",
+        "Si usan Firebase, muestra cómo almacenar objetos en Firestore.",
+        "Refuercen que esto es 'serverless': ya no necesitas Express si usas Supabase completo."
+      ],
+      "readings": [
+        {
+          "title": "Servicios de base de datos: MongoDB, Supabase SQL Database o Firebase",
+          "url": "https://supabase.com/docs",
+          "description": "Documentación oficial de Supabase",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 7",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-7-8",
+      "moduleId": "modulo-7",
+      "title": "Deploy y Proyecto Final",
+      "number": 8,
+      "week": 4,
+      "description": "Aprende a desplegar tu aplicación y presentar el proyecto final.",
+      "objectives": [
+        "Preparar el blog para producción.",
+        "Hacer deploy en Vercel o Netlify.",
+        "Revisar autenticación y persistencia.",
+        "Presentar el proyecto final con claridad."
+      ],
+      "project": {
+        "title": "Blog en producción",
+        "description": "Subir a producción el blog con base de datos integrada."
+      },
+      "senseiTips": [
+        "Ayuda a los alumnos a conectar su repo de GitHub a Vercel.",
+        "Asegúrate de que tengan su .env configurado.",
+        "Prueben login, creación y lectura de artículos en línea.",
+        "Pide que compartan el link del blog en Discord o Campus.",
+        "Recuérdales que su portafolio puede comenzar aquí.",
+        "Invítalos a dar una mini demo de su blog al grupo (opcional).",
+        "Cierra con una retrospectiva y qué aprendieron del módulo."
+      ],
+      "readings": [
+        {
+          "title": "Creando un CRUD Básico con Express",
+          "url": "https://vercel.com/docs",
+          "description": "Documentación de Vercel para deploy",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Proyecto Sensei clase 8",
+          "url": "#",
+          "description": "Solución de referencia del Sensei"
+        }
+      ],
+      "duration": "2h 30m"
+    }
+  ]
+}
