@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
   BookOpen,
   Monitor,
@@ -7,9 +10,12 @@ import {
   MessageSquare,
   Coffee,
   LogOut,
+  ChevronDown,
+  ChevronRight,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { ScriptItem } from '@/types';
+import { CodeSnippet } from '@/components/shared/code-snippet';
 
 const typeConfig: Record<
   ScriptItem['type'],
@@ -70,6 +76,12 @@ interface ScriptTimelineProps {
 }
 
 export function ScriptTimeline({ script }: ScriptTimelineProps) {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   if (!script || script.length === 0) return null;
 
   return (
@@ -78,6 +90,8 @@ export function ScriptTimeline({ script }: ScriptTimelineProps) {
         const config = typeConfig[item.type];
         const Icon = config.icon;
         const isLast = index === script.length - 1;
+        const isExpanded = expandedIndex === index;
+        const hasDetails = !!item.details;
 
         return (
           <div key={index} className="flex gap-3 relative">
@@ -95,16 +109,70 @@ export function ScriptTimeline({ script }: ScriptTimelineProps) {
 
             {/* Content */}
             <div className="flex-1 pb-4 min-w-0">
-              <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-xs font-mono text-muted-foreground">{item.time}</span>
-                <span
-                  className={`text-xs font-medium px-1.5 py-0.5 rounded ${config.bg} ${config.color}`}
-                >
-                  {config.label}
-                </span>
-              </div>
-              <h4 className="text-sm font-semibold">{item.section}</h4>
-              <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+              <button
+                onClick={() => hasDetails && toggleExpand(index)}
+                className={`w-full text-left ${hasDetails ? 'cursor-pointer' : 'cursor-default'}`}
+              >
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="text-xs font-mono text-muted-foreground">{item.time}</span>
+                  <span
+                    className={`text-xs font-medium px-1.5 py-0.5 rounded ${config.bg} ${config.color}`}
+                  >
+                    {config.label}
+                  </span>
+                  {hasDetails && (
+                    <span className="text-muted-foreground ml-auto">
+                      {isExpanded ? (
+                        <ChevronDown className="h-3.5 w-3.5" />
+                      ) : (
+                        <ChevronRight className="h-3.5 w-3.5" />
+                      )}
+                    </span>
+                  )}
+                </div>
+                <h4 className="text-sm font-semibold">{item.section}</h4>
+                <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+              </button>
+
+              {/* Expanded details */}
+              {isExpanded && hasDetails && item.details && (
+                <div className="mt-3 space-y-3 pl-0">
+                  {item.details.split('\n\n').map((block, bi) => {
+                    // Detect code blocks marked with ```lang
+                    const codeMatch = block.match(/^```(\w*)\n([\s\S]*?)```$/);
+                    if (codeMatch) {
+                      return (
+                        <CodeSnippet
+                          key={bi}
+                          code={codeMatch[2].trim()}
+                          language={codeMatch[1] || 'text'}
+                        />
+                      );
+                    }
+
+                    // Detect bullet lists
+                    if (block.trim().startsWith('- ') || block.trim().startsWith('* ')) {
+                      return (
+                        <ul key={bi} className="space-y-1">
+                          {block.trim().split('\n').map((line, li) => (
+                            <li key={li} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <span className="text-foreground mt-1.5 flex-shrink-0 w-1 h-1 rounded-full bg-muted-foreground" />
+                              <span>{line.replace(/^[-*]\s+/, '')}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      );
+                    }
+
+                    // Regular text
+                    return (
+                      <p key={bi} className="text-sm text-muted-foreground leading-relaxed">
+                        {block.trim()}
+                      </p>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         );

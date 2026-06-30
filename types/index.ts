@@ -76,6 +76,7 @@ export interface ScriptItem {
   time: string;
   section: string;
   description: string;
+  details?: string;
   type: 'intro' | 'explanation' | 'demo' | 'practice' | 'review' | 'qa' | 'break' | 'closing';
 }
 
