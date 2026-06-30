@@ -3,13 +3,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Pin, Presentation } from 'lucide-react';
+import { Pin, Presentation, CalendarClock, PenSquare, Play } from 'lucide-react';
 import { getLessonById, getLessonNavigation } from '@/data';
 import { SectionBlock } from '@/components/shared/section-block';
 import { ObjectivesList } from '@/components/shared/objectives-list';
 import { ProjectCard } from '@/components/shared/project-card';
+import { PracticeCard } from '@/components/shared/practice-card';
+import { DemoCard } from '@/components/shared/demo-card';
 import { ClassContent } from '@/components/student/class-content';
 import { LessonNavigation } from '@/components/shared/lesson-navigation';
+import { ScriptTimeline } from '@/components/sensei/script-timeline';
 import { SenseiPanel } from '@/components/sensei/sensei-panel';
 import { Button } from '@/components/ui/button';
 import { getLessonSlug } from '@/lib/presentation-utils';
@@ -70,11 +73,40 @@ export default function SenseiLessonPage({ params }: SenseiLessonPageProps) {
           <p className="text-muted-foreground leading-relaxed">{lesson.description}</p>
         </SectionBlock>
 
+        {/* Script / Lesson Plan — sensei only */}
+        {lesson.script && lesson.script.length > 0 && (
+          <SectionBlock title="Plan de Clase" icon={CalendarClock}>
+            <ScriptTimeline script={lesson.script} />
+          </SectionBlock>
+        )}
+
         {/* Objectives */}
         <ObjectivesList objectives={lesson.objectives} />
 
         {/* Project */}
         <ProjectCard project={lesson.project} />
+
+        {/* Practices */}
+        {lesson.practices && lesson.practices.length > 0 && (
+          <SectionBlock title="Prácticas" icon={PenSquare}>
+            <div className="space-y-4">
+              {lesson.practices.map((practice, i) => (
+                <PracticeCard key={i} practice={practice} />
+              ))}
+            </div>
+          </SectionBlock>
+        )}
+
+        {/* Demos */}
+        {lesson.demos && lesson.demos.length > 0 && (
+          <SectionBlock title="Demostraciones" icon={Play}>
+            <div className="space-y-4">
+              {lesson.demos.map((demo, i) => (
+                <DemoCard key={i} demo={demo} />
+              ))}
+            </div>
+          </SectionBlock>
+        )}
 
         {/* Readings & Videos */}
         <ClassContent lesson={lesson} />

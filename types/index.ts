@@ -23,6 +23,9 @@ export interface Lesson {
   readings: Reading[];
   videos: Video[];
   senseiProjectLinks: SenseiProjectLink[];
+  practices?: Practice[];
+  demos?: Demo[];
+  script?: ScriptItem[];
   duration?: string;
 }
 
@@ -53,6 +56,27 @@ export interface SenseiProjectLink {
   title: string;
   url: string;
   description?: string;
+}
+
+export interface Practice {
+  title: string;
+  description: string;
+  steps: string[];
+  duration?: string;
+}
+
+export interface Demo {
+  title: string;
+  description: string;
+  code?: string;
+  duration?: string;
+}
+
+export interface ScriptItem {
+  time: string;
+  section: string;
+  description: string;
+  type: 'intro' | 'explanation' | 'demo' | 'practice' | 'review' | 'qa' | 'break' | 'closing';
 }
 
 // === Auth Types ===

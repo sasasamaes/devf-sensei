@@ -50,6 +50,48 @@
           "description": "Solución de referencia del Sensei"
         }
       ],
+      "practices": [
+        {
+          "title": "Formulario de nuevo post",
+          "description": "Crea un formulario completo con validaciones usando React Hook Form",
+          "steps": [
+            "Título (requerido, mínimo 5 caracteres)",
+            "Contenido (requerido, mínimo 20 caracteres)",
+            "Autor (requerido)",
+            "Mostrar errores de validación"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Inputs controlados vs no controlados",
+          "description": "Diferencia entre inputs controlados con useState y no controlados con defaultValue",
+          "code": "// No controlado: el DOM guarda el valor\n<input type=\"text\" defaultValue=\"Hola\" />\n\n// Controlado: React guarda el valor\nconst [name, setName] = useState('');\n<input value={name} onChange={e => setName(e.target.value)} />",
+          "duration": "10 min"
+        },
+        {
+          "title": "React Hook Form básico",
+          "description": "Configuración inicial con register, handleSubmit y errors",
+          "code": "import { useForm } from 'react-hook-form';\n\nfunction PostForm() {\n  const { register, handleSubmit, formState: { errors } } = useForm();\n\n  const onSubmit = data => console.log(data);\n\n  return (\n    <form onSubmit={handleSubmit(onSubmit)}>\n      <input {...register('title', { required: true })} />\n      {errors.title && <span>Título requerido</span>}\n      <button type=\"submit\">Guardar</button>\n    </form>\n  );\n}",
+          "duration": "15 min"
+        },
+        {
+          "title": "Validaciones con React Hook Form",
+          "description": "Reglas de validación con pattern, minLength y mensajes personalizados",
+          "code": "<input\n  {...register('email', {\n    required: 'Email requerido',\n    pattern: {\n      value: /\\S+@\\S+\\.\\S+/,\n      message: 'Email inválido',\n    },\n    minLength: {\n      value: 5,\n      message: 'Mínimo 5 caracteres',\n    },\n  })}\n/>",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Formularios controlados vs no controlados", "description": "Explicar la diferencia. Mostrar ejemplo de input controlado con useState", "type": "intro" },
+        { "time": "0:10-0:20", "section": "Problemas con formularios manuales", "description": "Repetir onChange, errores dispersos, código no escalable. Preguntar experiencias", "type": "explanation" },
+        { "time": "0:20-0:35", "section": "React Hook Form: conceptos clave", "description": "Instalar e importar. Mostrar register, handleSubmit, errors en vivo", "type": "demo" },
+        { "time": "0:35-0:50", "section": "Validaciones comunes", "description": "required, pattern, minLength. Mensajes personalizados de error", "type": "demo" },
+        { "time": "0:50-1:20", "section": "Ejercicio: formulario de nuevo post", "description": "Los estudiantes crean su formulario con validaciones", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión y solución", "description": "Compartir solución de referencia y resolver dudas", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre y conexión con próxima clase", "description": "Este formulario se conectará al backend en la siguiente clase", "type": "closing" }
+      ],
       "duration": "2h 30m"
     },
     {
@@ -93,6 +135,41 @@
           "url": "#",
           "description": "Solución de referencia del Sensei"
         }
+      ],
+      "practices": [
+        {
+          "title": "Consumir API de posts",
+          "description": "Consume la API de jsonplaceholder y muestra los posts con estados de carga",
+          "steps": [
+            "Lista de títulos de posts",
+            "Estados de loading y error",
+            "Al hacer clic en un post, mostrar el detalle"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "useEffect con fetch",
+          "description": "Consumir datos de una API externa con useEffect y useState",
+          "code": "import { useEffect, useState } from 'react';\n\nfunction Posts() {\n  const [posts, setPosts] = useState([]);\n\n  useEffect(() => {\n    fetch('https://jsonplaceholder.typicode.com/posts')\n      .then(res => res.json())\n      .then(data => setPosts(data));\n  }, []);\n\n  return (\n    <ul>\n      {posts.map(post => <li key={post.id}>{post.title}</li>)}\n    </ul>\n  );\n}",
+          "duration": "10 min"
+        },
+        {
+          "title": "Manejo de loading y errores",
+          "description": "Agregar estados de carga y manejo de errores en la petición",
+          "code": "const [loading, setLoading] = useState(true);\nconst [error, setError] = useState(null);\n\nuseEffect(() => {\n  setLoading(true);\n  fetch('https://jsonplaceholder.typicode.com/posts')\n    .then(res => {\n      if (!res.ok) throw new Error('Error al cargar');\n      return res.json();\n    })\n    .then(data => {\n      setPosts(data);\n      setLoading(false);\n    })\n    .catch(err => {\n      setError(err.message);\n      setLoading(false);\n    });\n}, []);\n\nif (loading) return <p>Cargando...</p>;\nif (error) return <p>Error: {error}</p>;",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "¿Qué es un efecto secundario?", "description": "Operaciones fuera del renderizado: APIs, temporizadores, DOM manual", "type": "intro" },
+        { "time": "0:10-0:25", "section": "useEffect básico con fetch", "description": "Array de dependencias vacío, ciclo montaje → efecto → re-render", "type": "demo" },
+        { "time": "0:25-0:35", "section": "Manejo de loading", "description": "Estado loading para mejorar la UX mientras se cargan datos", "type": "demo" },
+        { "time": "0:35-0:45", "section": "Manejo de errores", "description": "try/catch en fetch, mostrar errores al usuario", "type": "demo" },
+        { "time": "0:45-1:20", "section": "Ejercicio: consumir API de posts", "description": "Los estudiantes implementan lista, detalle, loading y errores", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión de soluciones", "description": "Compartir solución de referencia", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Conectar con estado global en la siguiente clase", "type": "closing" }
       ],
       "duration": "2h 30m"
     },
@@ -138,6 +215,48 @@
           "description": "Solución de referencia del Sensei"
         }
       ],
+      "practices": [
+        {
+          "title": "Contexto de usuario para el blog",
+          "description": "Implementa un UserContext completo con persistencia en localStorage",
+          "steps": [
+            "UserProvider con estado, login y logout",
+            "NavBar que cambia según el usuario autenticado",
+            "Persistencia con localStorage",
+            "Solo usuarios logueados ven el botón 'Nuevo post'"
+          ],
+          "duration": "35 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "ThemeContext ejemplo práctico",
+          "description": "Contexto simple de tema para explicar el patrón Provider/useContext",
+          "code": "const ThemeContext = createContext();\n\nfunction ThemeProvider({ children }) {\n  const [theme, setTheme] = useState('light');\n  return (\n    <ThemeContext.Provider value={{ theme, setTheme }}>\n      {children}\n    </ThemeContext.Provider>\n  );\n}\n\nfunction Header() {\n  const { theme, setTheme } = useContext(ThemeContext);\n  return (\n    <header className={theme}>\n      <button onClick={() => setTheme('dark')}>Modo oscuro</button>\n    </header>\n  );\n}",
+          "duration": "10 min"
+        },
+        {
+          "title": "UserContext con login/logout",
+          "description": "Contexto de autenticación con estado de sesión simulado",
+          "code": "const UserContext = createContext();\n\nexport function UserProvider({ children }) {\n  const [user, setUser] = useState(null);\n\n  const login = (email) => {\n    setUser({ email, name: email.split('@')[0] });\n  };\n\n  const logout = () => setUser(null);\n\n  return (\n    <UserContext.Provider value={{ user, login, logout }}>\n      {children}\n    </UserContext.Provider>\n  );\n}",
+          "duration": "10 min"
+        },
+        {
+          "title": "Persistencia con localStorage",
+          "description": "Guardar y recuperar el estado de sesión entre recargas",
+          "code": "useEffect(() => {\n  const saved = localStorage.getItem('user');\n  if (saved) setUser(JSON.parse(saved));\n}, []);\n\nuseEffect(() => {\n  if (user) localStorage.setItem('user', JSON.stringify(user));\n  else localStorage.removeItem('user');\n}, [user]);",
+          "duration": "5 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Problema del prop drilling", "description": "¿Por qué necesitamos estado global? Pasar props 3+ niveles es tedioso", "type": "intro" },
+        { "time": "0:10-0:20", "section": "ThemeContext ejemplo inicial", "description": "Crear contexto, provider y consumer. Ejemplo simple de tema oscuro/claro", "type": "demo" },
+        { "time": "0:20-0:35", "section": "UserContext con login/logout", "description": "Estado de sesión simulado, login guarda objeto de usuario", "type": "demo" },
+        { "time": "0:35-0:45", "section": "Consumir contexto en componentes", "description": "NavBar que cambia según el usuario. useContext en múltiples componentes", "type": "explanation" },
+        { "time": "0:45-0:55", "section": "Persistencia con localStorage", "description": "Guardar sesión entre recargas. useEffect para sincronizar", "type": "demo" },
+        { "time": "0:55-1:25", "section": "Ejercicio: contexto de usuario", "description": "Implementar UserProvider, NavBar, persistencia y protección de rutas", "type": "practice" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Conectar con backend en la siguiente clase", "type": "closing" }
+      ],
       "duration": "2h 30m"
     },
     {
@@ -181,6 +300,39 @@
           "url": "#",
           "description": "Solución de referencia del Sensei"
         }
+      ],
+      "practices": [
+        {
+          "title": "Maqueta de endpoints REST",
+          "description": "Dibuja y documenta los endpoints de tu blog",
+          "steps": [
+            "Listar posts",
+            "Ver un post por ID",
+            "Crear post",
+            "Actualizar post",
+            "Eliminar post",
+            "Login y registro de usuario"
+          ],
+          "duration": "20 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Navegar por una API REST real",
+          "description": "Explorar jsonplaceholder.typicode.com para ver cómo luce una API REST",
+          "code": "// Probar en el navegador:\n// GET https://jsonplaceholder.typicode.com/posts\n// GET https://jsonplaceholder.typicode.com/posts/1\n\n// Respuesta JSON:\n[\n  {\n    \"id\": 1,\n    \"title\": \"Mi primer post\",\n    \"content\": \"Este es el contenido...\",\n    \"author\": \"Ana\",\n    \"createdAt\": \"2025-04-01\"\n  }\n]",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Frontend vs Backend", "description": "¿Qué hay detrás de una app web? Cliente-servidor, el backend como cerebro", "type": "intro" },
+        { "time": "0:10-0:20", "section": "¿Qué es una API REST?", "description": "Recursos, verbos HTTP, arquitectura REST. Analogía con biblioteca", "type": "explanation" },
+        { "time": "0:20-0:35", "section": "Verbos HTTP y ejemplos", "description": "GET, POST, PUT, DELETE. Analogía CRUD en Excel. Preguntar casos de uso", "type": "explanation" },
+        { "time": "0:35-0:45", "section": "Endpoints del blog", "description": "Dibujar endpoints en pizarra: GET/POST/PUT/DELETE /posts y /users", "type": "demo" },
+        { "time": "0:45-0:55", "section": "JSON como formato de intercambio", "description": "Mostrar JSON en navegador con jsonplaceholder", "type": "demo" },
+        { "time": "0:55-1:20", "section": "Actividad: maqueta de endpoints", "description": "Estudiantes dibujan endpoints de su blog en papel o Figma", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión en grupo", "description": "Discutir inconsistencias y resolver dudas", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Adelantar la siguiente clase: montaremos un servidor con Express", "type": "closing" }
       ],
       "duration": "2h 30m"
     },
@@ -226,6 +378,56 @@
           "description": "Solución de referencia del Sensei"
         }
       ],
+      "practices": [
+        {
+          "title": "Rutas del blog con Express",
+          "description": "Crea las rutas básicas para tu blog con Express",
+          "steps": [
+            "GET /posts → lista de posts",
+            "GET /posts/:id → un post por ID",
+            "POST /posts → crear post",
+            "GET /users → lista de usuarios",
+            "POST /users → crear usuario"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Hola mundo con Express",
+          "description": "Servidor Express básico con ruta GET",
+          "code": "const express = require('express');\nconst app = express();\nconst PORT = 3000;\n\napp.get('/', (req, res) => {\n  res.send('Servidor funcionando');\n});\n\napp.listen(PORT, () => {\n  console.log(`Servidor en http://localhost:${PORT}`);\n});",
+          "duration": "10 min"
+        },
+        {
+          "title": "Endpoint GET /posts",
+          "description": "Responder con datos JSON estáticos desde Express",
+          "code": "app.get('/posts', (req, res) => {\n  const posts = [\n    { id: 1, title: 'Primer post', content: 'Hola mundo' },\n    { id: 2, title: 'Segundo post', content: 'Aprendiendo Express' },\n  ];\n  res.json(posts);\n});",
+          "duration": "5 min"
+        },
+        {
+          "title": "POST con express.json()",
+          "description": "Recibir datos del body con express.json() middleware",
+          "code": "app.use(express.json());\n\napp.post('/posts', (req, res) => {\n  const { title, content } = req.body;\n  const newPost = { id: Date.now(), title, content };\n  res.status(201).json(newPost);\n});",
+          "duration": "10 min"
+        },
+        {
+          "title": "Parámetros de ruta dinámicos",
+          "description": "Rutas con parámetros :id y manejo de 404",
+          "code": "app.get('/posts/:id', (req, res) => {\n  const id = parseInt(req.params.id);\n  const post = posts.find(p => p.id === id);\n\n  if (!post) {\n    return res.status(404).json({ error: 'Post no encontrado' });\n  }\n\n  res.json(post);\n});",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Setup del proyecto", "description": "Crear proyecto desde cero: mkdir, npm init, npm install express", "type": "demo" },
+        { "time": "0:10-0:20", "section": "Hola mundo con Express", "description": "Servidor básico, explicar cada línea, ejecutar y ver en navegador", "type": "demo" },
+        { "time": "0:20-0:30", "section": "Endpoint GET /posts", "description": "Datos estáticos como JSON, comparar con jsonplaceholder", "type": "demo" },
+        { "time": "0:30-0:40", "section": "POST y express.json()", "description": "Middleware para leer req.body, probar con Postman", "type": "demo" },
+        { "time": "0:40-0:50", "section": "Parámetros de ruta", "description": ":id dinámico, status 404 para recursos no encontrados", "type": "demo" },
+        { "time": "0:50-1:20", "section": "Ejercicio: rutas del blog", "description": "Estudiantes crean rutas GET, POST para posts y usuarios", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión", "description": "Probar endpoints y resolver dudas", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Adelantar CRUD completo en la siguiente clase", "type": "closing" }
+      ],
       "duration": "2h 30m"
     },
     {
@@ -269,6 +471,56 @@
           "url": "#",
           "description": "Solución de referencia del Sensei"
         }
+      ],
+      "practices": [
+        {
+          "title": "CRUD de usuarios",
+          "description": "Completa el CRUD con rutas para el recurso usuarios",
+          "steps": [
+            "POST /users → crear usuario con email requerido",
+            "GET /users → listar usuarios",
+            "PUT /users/:id → actualizar usuario",
+            "DELETE /users/:id → eliminar usuario",
+            "Validaciones: email requerido, nombre mínimo 3 caracteres"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Setup del servidor CRUD",
+          "description": "Servidor Express con array en memoria y nextId auto-incremental",
+          "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\n\nlet posts = [\n  { id: 1, title: 'Introducción', content: 'Primer post' },\n  { id: 2, title: 'Express', content: 'Aprendiendo rutas' },\n];\n\nlet nextId = 3;",
+          "duration": "5 min"
+        },
+        {
+          "title": "POST - Crear con validación",
+          "description": "Crear recurso con validación de campos requeridos",
+          "code": "app.post('/posts', (req, res) => {\n  const { title, content, author } = req.body;\n\n  if (!title || !content) {\n    return res.status(400).json({ error: 'Faltan campos' });\n  }\n\n  const newPost = {\n    id: nextId++,\n    title,\n    content: content || '',\n    author: author || 'Anónimo',\n    createdAt: new Date().toISOString(),\n  };\n\n  posts.push(newPost);\n  res.status(201).json(newPost);\n});",
+          "duration": "10 min"
+        },
+        {
+          "title": "PUT - Actualizar",
+          "description": "Actualizar recurso existente con validación de existencia",
+          "code": "app.put('/posts/:id', (req, res) => {\n  const id = parseInt(req.params.id);\n  const post = posts.find(p => p.id === id);\n\n  if (!post) {\n    return res.status(404).json({ error: 'No encontrado' });\n  }\n\n  const { title, content } = req.body;\n  if (title) post.title = title;\n  if (content) post.content = content;\n\n  res.json(post);\n});",
+          "duration": "10 min"
+        },
+        {
+          "title": "DELETE - Eliminar",
+          "description": "Eliminar recurso con status 204 No Content",
+          "code": "app.delete('/posts/:id', (req, res) => {\n  const id = parseInt(req.params.id);\n  const index = posts.findIndex(p => p.id === id);\n\n  if (index === -1) {\n    return res.status(404).json({ error: 'No encontrado' });\n  }\n\n  posts.splice(index, 1);\n  res.status(204).send();\n});",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Repaso CRUD y setup", "description": "Repasar verbos HTTP, setup del servidor con array en memoria", "type": "intro" },
+        { "time": "0:10-0:20", "section": "GET - Leer todos y uno", "description": "GET /posts y GET /posts/:id con manejo de 404", "type": "demo" },
+        { "time": "0:20-0:30", "section": "POST - Crear con validación", "description": "Validar campos requeridos, status 201, nextId auto-incremental", "type": "demo" },
+        { "time": "0:30-0:40", "section": "PUT - Actualizar", "description": "Actualización parcial, buscar por ID, modificar in-place", "type": "demo" },
+        { "time": "0:40-0:50", "section": "DELETE - Eliminar", "description": "Status 204, splice del array, probar flujo completo", "type": "demo" },
+        { "time": "0:50-1:20", "section": "Ejercicio: CRUD de usuarios", "description": "Estudiantes implementan CRUD completo para usuarios con validaciones", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión en grupo", "description": "Probar endpoints y resolver dudas", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Adelantar base de datos real con Supabase", "type": "closing" }
       ],
       "duration": "2h 30m"
     },
@@ -314,6 +566,49 @@
           "description": "Solución de referencia del Sensei"
         }
       ],
+      "practices": [
+        {
+          "title": "Migrar blog a Supabase",
+          "description": "Conecta tu blog a Supabase y reemplaza el backend local",
+          "steps": [
+            "Crear tabla posts con los campos correctos en Supabase",
+            "Configurar la conexión desde el frontend",
+            "Reemplazar el backend local por Supabase REST API",
+            "Implementar GET, POST, DELETE contra Supabase",
+            "(Opcional) Agregar autenticación por email"
+          ],
+          "duration": "40 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Conectar con fetch a Supabase",
+          "description": "GET a Supabase REST API con headers de autenticación",
+          "code": "const SUPABASE_URL = 'https://[project].supabase.co';\nconst SUPABASE_KEY = 'eyJhbGciOiJ...';\n\n// GET /posts\nconst response = await fetch(\n  `${SUPABASE_URL}/rest/v1/posts`,\n  {\n    headers: {\n      apikey: SUPABASE_KEY,\n      Authorization: `Bearer ${SUPABASE_KEY}`,\n    },\n  }\n);\nconst posts = await response.json();",
+          "duration": "10 min"
+        },
+        {
+          "title": "CRUD contra Supabase",
+          "description": "Crear y eliminar posts usando la REST API de Supabase",
+          "code": "// POST - Crear\nfetch(`${SUPABASE_URL}/rest/v1/posts`, {\n  method: 'POST',\n  headers: {\n    apikey: SUPABASE_KEY,\n    Authorization: `Bearer ${SUPABASE_KEY}`,\n    'Content-Type': 'application/json',\n    Prefer: 'return=representation',\n  },\n  body: JSON.stringify({ title, content }),\n});\n\n// DELETE\nfetch(`${SUPABASE_URL}/rest/v1/posts?id=eq.${id}`, {\n  method: 'DELETE',\n  headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` },\n});",
+          "duration": "10 min"
+        },
+        {
+          "title": "Realtime en Supabase",
+          "description": "Suscripción a cambios en tiempo real con Supabase Realtime",
+          "code": "const channel = supabase\n  .channel('posts-changes')\n  .on(\n    'postgres_changes',\n    { event: 'INSERT', schema: 'public', table: 'posts' },\n    (payload) => {\n      console.log('Nuevo post:', payload.new);\n      setPosts(prev => [...prev, payload.new]);\n    }\n  )\n  .subscribe();",
+          "duration": "5 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "¿Por qué base de datos real?", "description": "Los datos en memoria se pierden al reiniciar. Necesitamos persistencia real", "type": "intro" },
+        { "time": "0:10-0:20", "section": "Supabase vs Firebase", "description": "Comparativa: PostgreSQL vs Firestore, SQL vs NoSQL, precio", "type": "explanation" },
+        { "time": "0:20-0:30", "section": "Crear proyecto en Supabase", "description": "Registro, nuevo proyecto, crear tabla posts con SQL", "type": "demo" },
+        { "time": "0:30-0:40", "section": "Conectar con fetch nativo", "description": "API key, headers, GET desde React contra Supabase", "type": "demo" },
+        { "time": "0:40-0:50", "section": "CRUD y Realtime", "description": "POST, DELETE con REST API. Suscripción a cambios en vivo", "type": "demo" },
+        { "time": "0:50-1:25", "section": "Ejercicio: migrar blog a Supabase", "description": "Estudiantes migran su backend local a Supabase con CRUD", "type": "practice" },
+        { "time": "1:25-1:30", "section": "Revisión y cierre", "description": "Ayudar con variables de entorno. Adelantar deploy", "type": "review" }
+      ],
       "duration": "2h 30m"
     },
     {
@@ -357,6 +652,45 @@
           "url": "#",
           "description": "Solución de referencia del Sensei"
         }
+      ],
+      "practices": [
+        {
+          "title": "Deploy y checklist final",
+          "description": "Despliega tu blog a producción y completa el checklist final",
+          "steps": [
+            "Blog funcional en producción con URL pública",
+            "CRUD de posts contra Supabase funcionando",
+            "Autenticación con email/password",
+            "Responsive design",
+            "README con instrucciones en el repositorio",
+            "Repositorio público en GitHub",
+            "Link compartido en Discord o Campus"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Deploy frontend en Vercel",
+          "description": "Subir el proyecto a Vercel desde GitHub o CLI",
+          "code": "# Build el proyecto\nnpm run build\n\n# Probar build local\nnpx serve -s dist\n\n# Deploy con Vercel CLI\nnpm i -g vercel\nvercel --prod",
+          "duration": "15 min"
+        },
+        {
+          "title": "Deploy backend Express en Render",
+          "description": "Si usaron Express aparte, deploy en Render con variables de entorno",
+          "code": "# En el backend asegurar:\n# 1. package.json con script start\n# 2. Puerto con process.env.PORT\n# 3. Variables de entorno en dashboard de Render\n\nnpm install\nnpm start",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Preparar proyecto para producción", "description": "Build del frontend, verificar variables de entorno", "type": "intro" },
+        { "time": "0:10-0:25", "section": "Deploy frontend en Vercel", "description": "Subir a GitHub, importar en Vercel, agregar variables de entorno", "type": "demo" },
+        { "time": "0:25-0:35", "section": "Deploy backend (opcional)", "description": "Si usaron Express, deploy en Render o Railway", "type": "demo" },
+        { "time": "0:35-0:50", "section": "Probar app en producción", "description": "CRUD completo, autenticación, verificar funcionalidad", "type": "practice" },
+        { "time": "0:50-1:05", "section": "Mini demo de cada estudiante", "description": "Cada estudiante presenta su blog (2 min): URL, funcionalidades, retos", "type": "practice" },
+        { "time": "1:05-1:20", "section": "Retrospectiva del módulo", "description": "Repasar lo aprendido: formularios, APIs, Context, Express, Supabase, deploy", "type": "review" },
+        { "time": "1:20-1:30", "section": "Cierre del módulo", "description": "Palabras de motivación, anunciar módulo 8, preguntas finales", "type": "closing" }
       ],
       "duration": "2h 30m"
     }

@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Pin } from 'lucide-react';
+import { Pin, PenSquare, Play } from 'lucide-react';
 import { getLessonById, getLessonNavigation } from '@/data';
 import { SectionBlock } from '@/components/shared/section-block';
 import { ObjectivesList } from '@/components/shared/objectives-list';
 import { ProjectCard } from '@/components/shared/project-card';
+import { PracticeCard } from '@/components/shared/practice-card';
+import { DemoCard } from '@/components/shared/demo-card';
 import { ClassContent } from '@/components/student/class-content';
 import { LessonNavigation } from '@/components/shared/lesson-navigation';
 import { StudentPresentationView } from '@/components/student/student-presentation-view';
@@ -66,6 +68,28 @@ export default function StudentLessonPage({ params }: LessonPageProps) {
 
       {/* Project */}
       <ProjectCard project={lesson.project} />
+
+      {/* Practices */}
+      {lesson.practices && lesson.practices.length > 0 && (
+        <SectionBlock title="Práctica" icon={PenSquare}>
+          <div className="space-y-4">
+            {lesson.practices.map((practice, i) => (
+              <PracticeCard key={i} practice={practice} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
+
+      {/* Demos */}
+      {lesson.demos && lesson.demos.length > 0 && (
+        <SectionBlock title="Demostraciones" icon={Play}>
+          <div className="space-y-4">
+            {lesson.demos.map((demo, i) => (
+              <DemoCard key={i} demo={demo} />
+            ))}
+          </div>
+        </SectionBlock>
+      )}
 
       {/* Readings & Videos */}
       <ClassContent lesson={lesson} />
