@@ -91,3 +91,64 @@ export interface SearchResult {
   href: string;
   moduleId?: string;
 }
+
+// === Presentation Types ===
+export interface Slide {
+  id: string;
+  html: string;
+  notes: string;
+  isVerticalSection?: boolean;
+  parentIndex?: number;
+}
+
+export interface SlideDeck {
+  title: string;
+  duration?: number;
+  sessionId: string;
+  slides: Slide[];
+  moduleId: string;
+  lessonId: string;
+  slug: string;
+}
+
+export interface SlideIndices {
+  h: number;
+  v: number;
+}
+
+// === Live Session Types ===
+export type LiveSessionEvent =
+  | 'slideChanged'
+  | 'presentationStarted'
+  | 'presentationPaused'
+  | 'presentationEnded';
+
+export interface LiveSessionMessage {
+  event: LiveSessionEvent;
+  sessionId: string;
+  indices: SlideIndices;
+  timestamp: number;
+}
+
+export interface LiveSessionState {
+  sessionId: string | null;
+  isLive: boolean;
+  currentSlide: SlideIndices;
+  startTime: number | null;
+  elapsedSeconds: number;
+}
+
+export interface LiveSessionContextValue {
+  sessionId: string | null;
+  isSensei: boolean;
+  isLive: boolean;
+  currentSlide: SlideIndices;
+  startTime: number | null;
+  elapsedSeconds: number;
+  startSession: (sessionId: string) => void;
+  endSession: () => void;
+  pauseSession: () => void;
+  resumeSession: () => void;
+  changeSlide: (indices: SlideIndices) => void;
+  joinSession: (sessionId: string) => void;
+}

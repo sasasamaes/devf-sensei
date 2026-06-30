@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Pin } from 'lucide-react';
+import { Pin, Presentation } from 'lucide-react';
 import { getLessonById, getLessonNavigation } from '@/data';
 import { SectionBlock } from '@/components/shared/section-block';
 import { ObjectivesList } from '@/components/shared/objectives-list';
@@ -10,6 +11,8 @@ import { ProjectCard } from '@/components/shared/project-card';
 import { ClassContent } from '@/components/student/class-content';
 import { LessonNavigation } from '@/components/shared/lesson-navigation';
 import { SenseiPanel } from '@/components/sensei/sensei-panel';
+import { Button } from '@/components/ui/button';
+import { getLessonSlug } from '@/lib/presentation-utils';
 
 interface SenseiLessonPageProps {
   params: Promise<{ moduleId: string; lessonId: string }>;
@@ -27,6 +30,8 @@ export default function SenseiLessonPage({ params }: SenseiLessonPageProps) {
       </div>
     );
   }
+
+  const presentationHref = `/sensei/class/${getLessonSlug(resolvedParams.moduleId, resolvedParams.lessonId)}/present`;
 
   return (
     <div className="flex gap-6 p-6 max-w-[1400px] mx-auto">
@@ -49,7 +54,15 @@ export default function SenseiLessonPage({ params }: SenseiLessonPageProps) {
               </>
             )}
           </div>
-          <h1 className="text-3xl font-bold">{lesson.title}</h1>
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-3xl font-bold">{lesson.title}</h1>
+            <Link href={presentationHref}>
+              <Button className="gap-2 shrink-0">
+                <Presentation className="h-4 w-4" />
+                Presentar
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Description */}
