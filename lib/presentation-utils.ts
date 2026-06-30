@@ -7,6 +7,12 @@ export function getLessonSlug(moduleId: string, lessonId: string): string {
   return `${moduleId}--${lessonId}`;
 }
 
+export function getLessonIdFromUrl(pathname: string): string | null {
+  const match = pathname.match(/\/student\/([^/]+)\/([^/]+)/);
+  if (!match) return null;
+  return getLessonSlug(match[1], match[2]);
+}
+
 export function parseLessonSlug(slug: string): { moduleId: string; lessonId: string } | null {
   const [moduleId, lessonId] = slug.split('--');
   if (!moduleId || !lessonId) return null;
