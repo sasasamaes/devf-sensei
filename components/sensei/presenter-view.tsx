@@ -1,9 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { PanelRightClose, PanelRightOpen } from 'lucide-react';
 import { RevealPresentation } from './reveal-presentation';
 import { SpeakerNotesPanel } from './speaker-notes-panel';
 import { TimerWidget } from './timer-widget';
+import { cn } from '@/lib/utils';
 import type { Slide, SlideDeck, SlideIndices } from '@/types';
 
 interface PresenterViewProps {
@@ -41,6 +43,7 @@ export function PresenterView({
   sessionId,
 }: PresenterViewProps) {
   const [clock, setClock] = useState<string>(formatClock(new Date()));
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const currentSlideData: Slide | undefined = deck.slides[currentSlide.h];
   const nextSlideData: Slide | undefined = deck.slides[currentSlide.h + 1];
 
@@ -54,7 +57,17 @@ export function PresenterView({
   return (
     <div className="flex h-screen w-full bg-background overflow-hidden">
       <div className="flex-1 flex flex-col min-w-0">
-        <div className="flex-1 p-4 min-h-0">
+        <div className="flex-1 p-2 sm:p-4 min-h-0 relative">
+          <button
+            onClick={() => setSidebarOpen(o => !o)}
+            className="absolute top-2 right-2 z-50 h-8 w-8 rounded-md bg-background/80 border shadow-sm flex items-center justify-center hover:bg-accent lg:hidden"
+          >
+            {sidebarOpen ? (
+              <PanelRightClose className="h-4 w-4" />
+            ) : (
+              <PanelRightOpen className="h-4 w-4" />
+            )}
+          </button>
           <RevealPresentation
             deck={deck}
             mode="sensei"
@@ -64,7 +77,10 @@ export function PresenterView({
         </div>
       </div>
 
-      <aside className="w-80 border-l bg-card flex flex-col overflow-y-auto">
+      <aside className={cn(
+        "w-80 border-l bg-card flex flex-col overflow-y-auto shrink-0",
+        sidebarOpen ? "block" : "hidden lg:block"
+      )}>
         <div className="p-4 border-b space-y-4">
           <div className="flex items-center justify-between">
             <div>

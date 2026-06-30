@@ -34,7 +34,7 @@ export default function SenseiLessonPage({ params }: SenseiLessonPageProps) {
   const presentationHref = `/sensei/class/${getLessonSlug(resolvedParams.moduleId, resolvedParams.lessonId)}/present`;
 
   return (
-    <div className="flex gap-6 p-6 max-w-[1400px] mx-auto">
+    <div className="flex flex-col lg:flex-row gap-6 p-4 sm:p-6 max-w-6xl mx-auto">
       {/* Main content - same as student view */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -54,10 +54,10 @@ export default function SenseiLessonPage({ params }: SenseiLessonPageProps) {
               </>
             )}
           </div>
-          <div className="flex items-start justify-between gap-4">
-            <h1 className="text-3xl font-bold">{lesson.title}</h1>
-            <Link href={presentationHref}>
-              <Button className="gap-2 shrink-0">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+            <h1 className="text-2xl sm:text-3xl font-bold break-words">{lesson.title}</h1>
+            <Link href={presentationHref} className="shrink-0 self-start">
+              <Button className="gap-2 w-full sm:w-auto">
                 <Presentation className="h-4 w-4" />
                 Presentar
               </Button>

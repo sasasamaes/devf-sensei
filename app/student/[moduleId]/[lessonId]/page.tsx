@@ -31,7 +31,7 @@ export default function StudentLessonPage({ params }: LessonPageProps) {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="p-6 max-w-4xl mx-auto space-y-8"
+      className="p-4 sm:p-6 max-w-4xl mx-auto space-y-8"
     >
       {/* Header */}
       <div className="space-y-2">

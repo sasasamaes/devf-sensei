@@ -12,7 +12,7 @@ export function StudentFollowMode({ deck }: StudentFollowModeProps) {
   const { currentSlide, isLive, sessionId } = useLiveSession();
 
   return (
-    <div className="relative h-screen w-full bg-background">
+    <div className="relative h-dvh w-full bg-background">
       <RevealPresentation
         deck={deck}
         mode="student"

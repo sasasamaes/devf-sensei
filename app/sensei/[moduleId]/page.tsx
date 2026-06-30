@@ -26,7 +26,7 @@ export default function SenseiModulePage({ params }: SenseiModulePageProps) {
   const progress = getModuleProgress(mod.id, mod.lessons.length);
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
       <div className="space-y-3">
         <h1 className="text-2xl font-bold">{mod.title}</h1>
         <p className="text-muted-foreground">{mod.description}</p>
