@@ -76,3 +76,18 @@
     background-clip: text;
   }
 }
+
+/* Reveal.js dark mode overrides */
+.dark .reveal {
+  --r-background-color: #111827;
+  --r-main-color: #e5e7eb;
+  --r-main-font-size: 40px;
+  --r-heading-color: #f9fafb;
+  --r-link-color: #60a5fa;
+  --r-link-color-hover: #93c5fd;
+  --r-selection-background-color: #3b82f6;
+  --r-selection-color: #fff;
+  --r-block-margin: 20px;
+  --r-heading-margin: 0 0 20px 0;
+  --r-heading-font-weight: 600;
+}

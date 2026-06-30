@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import type { SlideDeck, SlideIndices } from '@/types';
 
 import 'reveal.js/reveal.css';
-import 'reveal.js/theme/black.css';
+import 'reveal.js/theme/white.css';
 import 'highlight.js/styles/atom-one-dark.css';
 
 interface RevealPresentationProps {
@@ -27,7 +27,6 @@ export function RevealPresentation({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const revealInstanceRef = useRef<any>(null);
   const [isReady, setIsReady] = useState(false);
-  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     let cleanup = () => {};
@@ -83,22 +82,8 @@ export function RevealPresentation({
     return () => cleanup();
   }, [deck, mode, initialSlide.h, initialSlide.v, onReady, onSlideChange]);
 
-  useEffect(() => {
-    if (revealInstanceRef.current) {
-      try {
-        const theme = resolvedTheme === 'dark' ? 'black' : 'white';
-        const linkEl = document.getElementById('reveal-theme') as HTMLLinkElement;
-        if (linkEl) {
-          linkEl.href = `/reveal.js/theme/${theme}.css`;
-        }
-      } catch {
-        // ignore
-      }
-    }
-  }, [resolvedTheme]);
-
   return (
-    <div className="reveal" ref={revealRef} style={{ height: '100%', width: '100%' }}>
+    <div className="reveal reveal-light" ref={revealRef} style={{ height: '100%', width: '100%' }}>
       <div className="slides">
         {deck.slides.map((slide) => (
           <section key={slide.id} dangerouslySetInnerHTML={{ __html: slide.html }} />
