@@ -9,14 +9,21 @@ export function verifyPassword(password: string): boolean {
 }
 
 export function setAuthSession(): void {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem(AUTH_KEY, 'true');
-    localStorage.setItem(AUTH_TIME_KEY, Date.now().toString());
-  }
+  if (typeof window === 'undefined') return;
+
+  localStorage.setItem(AUTH_KEY, 'true');
+  localStorage.setItem(AUTH_TIME_KEY, Date.now().toString());
+
+  // Set cookie for middleware detection
+  document.cookie = 'sensei-session=true; path=/; max-age=28800; SameSite=Lax';
 }
 
 export function checkAuthSession(): boolean {
-  if (typeof window === 'undefined') return false;
+  if (typeof window === 'undefined') {
+    // Server-side: check cookie
+    return false; // middleware handles this
+  }
+
   const auth = localStorage.getItem(AUTH_KEY);
   const time = localStorage.getItem(AUTH_TIME_KEY);
 
@@ -35,5 +42,6 @@ export function clearAuthSession(): void {
   if (typeof window !== 'undefined') {
     localStorage.removeItem(AUTH_KEY);
     localStorage.removeItem(AUTH_TIME_KEY);
+    document.cookie = 'sensei-session=; path=/; max-age=0';
   }
 }
