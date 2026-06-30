@@ -1,8 +1,9 @@
 import modulo7 from './modules/modulo-7.json';
+import modulo8 from './modules/modulo-8.json';
 import { scriptDetails } from './script-details';
 import type { Module, LessonNavigation, ScriptItem } from '@/types';
 
-export const modules: Module[] = [modulo7 as Module];
+export const modules: Module[] = [modulo7 as Module, modulo8 as Module];
 
 export function getModuleById(id: string): Module | undefined {
   return modules.find(m => m.id === id);

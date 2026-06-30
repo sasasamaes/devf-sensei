@@ -1657,5 +1657,1081 @@ Felicitaciones por completar React Avanzado.
 
 Nos vemos en el siguiente módulo.`
     }
+  ],
+  'lesson-8-1': [
+    {
+      "time": "0:00-0:10",
+      "details": `Vamos a empezar el módulo 8. Este módulo es diferente a todos los anteriores.
+
+En los módulos anteriores aprendieron a programar. Aprendieron React, Express, bases de datos, deploy.
+
+Este módulo no es sobre programar. Es sobre cómo unirse a la comunidad de desarrollo de software.
+
+El open source, o código abierto, es software cuyo código fuente está disponible para que cualquiera lo vea, lo use, lo modifique y lo comparta.
+
+Ejemplos: Linux, React, VS Code, Python, WordPress. Todo eso es open source.
+
+Y hoy ustedes van a empezar su camino como contribuidores open source.
+
+Pregunta: ¿Qué ejemplos de software open source conocen? ¿Alguien ha usado algo que sepa que es open source?
+
+La idea de este módulo es que aprendan el flujo completo de contribución. Y al final del módulo, van a haber hecho una contribución real a un proyecto open source.
+
+El proyecto al que van a contribuir es esta misma plataforma, Sensei, la que están usando ahora para ver la clase. Van a poder agregar mejoras reales. Y yo voy a revisar y aprobar sus contribuciones.
+
+¿Listos? Vamos.`
+    },
+    {
+      "time": "0:10-0:20",
+      "details": `¿Por qué contribuir a open source?
+
+Primero, su código va a estar en producción. No es un ejercicio de clase, no es un proyecto personal que nadie ve. Es código real que otros developers van a usar.
+
+Segundo, es un portafolio real para entrevistas. Cuando un reclutador vea que tienen contribuciones open source, eso pesa muchísimo más que cualquier proyecto académico.
+
+Tercero, aprenden de developers experimentados. Cuando alguien revisa su código, les va a decir cosas como "esto se puede hacer mejor así" o "existe una función para esto". Eso es aprendizaje gratuito.
+
+Cuarto, construyen su reputación en GitHub. Cada contribución queda en su perfil para siempre.
+
+Y quinto, es su forma de dar algo de vuelta a la comunidad. Todos usamos software open source todos los días. Esta es su oportunidad de contribuir de vuelta.
+
+Pregunta: ¿Cuántos de ustedes tienen proyectos en GitHub? Muéstrenme sus perfiles.
+
+Bien. Este módulo los va a ayudar a llenar ese perfil de contribuciones reales.`
+    },
+    {
+      "time": "0:20-0:30",
+      "details": `Vamos a ver el flujo de contribución completo.
+
+Son 10 pasos:
+
+Primero, encontrar un proyecto al que contribuir. En nuestro caso, ya tenemos el proyecto: la plataforma Sensei.
+
+Segundo, hacer fork. Fork es crear una copia del repositorio en tu cuenta de GitHub.
+
+Tercero, clonar localmente. Descargar esa copia a tu computadora.
+
+Cuarto, crear una rama. Nunca trabajes directamente en main, siempre en una rama separada.
+
+Quinto, hacer cambios. Ahí es donde programas la mejora o corrección.
+
+Sexto, commit y push. Guardas tus cambios y los subes a GitHub.
+
+Séptimo, abrir un Pull Request. Le pides al dueño del proyecto que revise e incorpore tus cambios.
+
+Octavo, code review. Alguien revisa tu código y te da feedback.
+
+Noveno, aprobación. El maintainer dice "está bien, lo acepto".
+
+Décimo, merge. Tus cambios se incorporan al proyecto principal.
+
+Y ese es el flujo. En las próximas clases vamos a hacer cada uno de estos pasos.`
+    },
+    {
+      "time": "0:30-0:45",
+      "details": `Vamos a abrir el repositorio del proyecto.
+
+Vayan a esta URL: https://github.com/devf-sensei/sensei-platform
+
+Esta es la plataforma que están usando ahora mismo para ver la clase.
+
+Vamos a recorrer las secciones juntos.
+
+Primero, la pestaña Code. Aquí está todo el código fuente. Pueden ver las carpetas, los archivos, los commits.
+
+Segundo, Issues. Aquí se reportan bugs y se sugieren mejoras. Cuando encuentren algo que mejorar, aquí es donde lo reportan.
+
+Tercero, Pull Requests. Aquí están las contribuciones de otras personas. Pueden ver PRs abiertos y cerrados para entender qué tipo de cambios se hacen.
+
+Cuarto, Projects. Un tablero para organizar el trabajo.
+
+Quinto, Wiki. Documentación del proyecto.
+
+Sexto, Security. Políticas de seguridad.
+
+Séptimo, Insights. Estadísticas del proyecto: cuántos commits, quiénes contribuyen, etc.
+
+Y algo muy importante: la licencia. El archivo LICENSE. Esto define cómo se puede usar el código.
+
+Vamos a verlo en vivo. Voy a compartir pantalla y recorremos cada sección.`
+    },
+    {
+      "time": "0:45-0:55",
+      "details": `Ejercicio. Van a explorar el repositorio por su cuenta.
+
+Quiero que hagan lo siguiente:
+
+Primero, lean el README. El README es la puerta de entrada del proyecto. Ahí debería venir información de qué hace el proyecto, cómo instalarlo, cómo contribuir.
+
+Segundo, busquen el archivo de licencia. ¿Qué tipo de licencia tiene?
+
+Tercero, miren los issues abiertos. ¿De qué tipo hay? ¿Hay alguno etiquetado como good first issue?
+
+Cuarto, miren los Pull Requests cerrados. Así pueden ver qué tipo de contribuciones ha recibido el proyecto.
+
+Quinto, identifiquen la estructura de carpetas. ¿Cómo está organizado el proyecto?
+
+Tienen 15 minutos. Después compartimos lo que encontraron.`
+    },
+    {
+      "time": "0:55-1:05",
+      "details": `Hablemos de los issues. Los issues son tareas.
+
+Cuando alguien encuentra un bug, crea un issue. Cuando alguien quiere una mejora, crea un issue.
+
+Los issues tienen labels para organizarlos. Las más importantes para ustedes son:
+
+Good first issue, con color verde. Son issues diseñados para quienes empiezan. Son tareas pequeñas y bien explicadas.
+
+Help wanted, con color amarillo. El proyecto necesita ayuda con esto.
+
+Bug, con color rojo. Algo está mal.
+
+Enhancement, con color azul. Una mejora o feature nueva.
+
+Documentation. Cosas de documentación.
+
+Cuando vean un issue que les interese, pueden comentar "me gustaría trabajar en esto" y alguien se los asigna.
+
+¿Ven? No es complicado. Es solo comunicación.`
+    },
+    {
+      "time": "1:05-1:20",
+      "details": `Hablemos de cómo comunicarse en proyectos open source.
+
+Hay reglas no escritas que es importante conocer.
+
+Primero, sean respetuosos. Detrás de cada usuario de GitHub hay una persona. Trátenla como les gustaría ser tratados.
+
+Segundo, critiquen el código, no a la persona. No digan "esto está mal", digan "esta función podría mejorar si hacemos X".
+
+Tercero, ayuden a otros contribuidores. Si ven que alguien preguntó algo y saben la respuesta, respondan.
+
+Cuarto, sigan las guías de contribución. Algunos proyectos tienen un archivo CONTRIBUTING.md que explica cómo contribuir.
+
+Y quinto, paciencia. Los mantenedores son voluntarios. Pueden tardar en responder.
+
+El código de conducta no es opcional. Es obligatorio para participar. Si alguien no lo respeta, puede ser expulsado del proyecto.`
+    },
+    {
+      "time": "1:20-1:25",
+      "details": `Compartamos lo que encontraron en la exploración.
+
+¿Qué descubrieron del proyecto? ¿Algo les llamó la atención? ¿Encontraron algún issue interesante?
+
+Compartan pantalla si quieren mostrar algo.`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar la clase de hoy.
+
+Vimos qué es open source, por qué contribuir, el flujo de contribución, y exploramos el repositorio del proyecto.
+
+En la siguiente clase vamos a hacer nuestro primer fork. Van a tener su propia copia del proyecto.
+
+Para la casa: si tienen GitHub, denle una estrella al repositorio. Si no tienen cuenta de GitHub, créanla. La vamos a necesitar.
+
+Nos vemos en la próxima clase.`
+    }
+  ],
+  'lesson-8-2': [
+    {
+      "time": "0:00-0:10",
+      "details": `Hoy vamos a hacer nuestro primer fork.
+
+¿Qué es un fork? Un fork es una copia de un repositorio en tu cuenta de GitHub.
+
+Imaginen que tienen un libro. Y quieren hacer anotaciones en ese libro. Pero no quieren rayar el original. Lo que hacen es sacar una fotocopia del libro y rayar la fotocopia.
+
+El repositorio original es el libro. El fork es la fotocopia. Ustedes pueden hacer lo que quieran en su fotocopia sin afectar el original.
+
+El repositorio original se llama upstream. La fotocopia en su cuenta se llama origin.
+
+Y cuando tengan sus cambios listos, le dicen al dueño del original: "oye, hice estos cambios en mi copia, ¿quieres incorporarlos al original?". Eso se llama Pull Request.
+
+Pero primero, el fork.`
+    },
+    {
+      "time": "0:10-0:25",
+      "details": `Vamos a hacer el fork en vivo. Todos sigan en sus pantallas.
+
+Abran el repositorio: https://github.com/devf-sensei/sensei-platform
+
+Arriba a la derecha, hay un botón que dice Fork. Hagan clic ahí.
+
+Les va a preguntar a dónde quieren hacer el fork. Seleccionen su cuenta de GitHub.
+
+Le pueden cambiar el nombre si quieren, pero yo recomiendo dejarlo igual.
+
+Y hagan clic en Create Fork.
+
+Esperen unos segundos mientras GitHub hace la copia.
+
+Listo. Ahora tienen el repositorio en su cuenta. La URL debe ser algo como:
+
+https://github.com/TU_USUARIO/sensei-platform
+
+Fíjense que arriba a la izquierda dice "forked from devf-sensei/sensei-platform". Eso indica que es un fork.
+
+Ya tienen su copia. Ahora vamos a descargarla a su máquina.`
+    },
+    {
+      "time": "0:25-0:35",
+      "details": `Para trabajar localmente, necesitamos clonar el repositorio.
+
+Abran la terminal. Y escriban:
+
+\`\`\`bash
+git clone https://github.com/TU_USUARIO/sensei-platform.git
+\`\`\`
+
+Cambien TU_USUARIO por su nombre de usuario de GitHub.
+
+Esto va a crear una carpeta llamada sensei-platform con todo el código.
+
+\`\`\`bash
+cd sensei-platform
+\`\`\`
+
+Ya están dentro del proyecto. Pueden abrirlo en su editor.
+
+Ahora, una pregunta importante. Cuando clonaron, el repositorio remoto que se configuró automáticamente se llama origin y apunta a su fork. Pero necesitamos otro remoto que apunte al repositorio original para poder traer los cambios nuevos.
+
+Eso se llama upstream.`
+    },
+    {
+      "time": "0:35-0:50",
+      "details": `Vamos a configurar el remoto upstream.
+
+\`\`\`bash
+git remote add upstream https://github.com/devf-sensei/sensei-platform.git
+\`\`\`
+
+Ahora verifiquen que los dos remotos estén configurados:
+
+\`\`\`bash
+git remote -v
+\`\`\`
+
+Deben ver algo así:
+
+origin    https://github.com/TU_USUARIO/sensei-platform.git (fetch)
+origin    https://github.com/TU_USUARIO/sensei-platform.git (push)
+upstream  https://github.com/devf-sensei/sensei-platform.git (fetch)
+upstream  https://github.com/devf-sensei/sensei-platform.git (push)
+
+¿Ven la diferencia? Origin es su fork, donde ustedes tienen permisos de escritura. Upstream es el repositorio original, donde solo pueden leer.
+
+Entonces, ¿para qué sirve cada uno?
+
+Origin: para subir sus cambios con git push.
+
+Upstream: para traer los cambios del original con git pull.
+
+Nunca hagan push a upstream. No tiene sentido, no tienen permisos.`
+    },
+    {
+      "time": "0:50-1:05",
+      "details": `Ahora, algo muy importante. El repositorio original va a recibir cambios de otras personas. Puede que mientras ustedes trabajan, yo u otros contribuidores agreguemos código nuevo.
+
+Para que su fork esté actualizado, tienen que sincronizarlo.
+
+Siempre que vayan a empezar a trabajar, hagan esto:
+
+\`\`\`bash
+git checkout main
+git pull upstream main
+git push origin main
+\`\`\`
+
+Primero se cambian a la rama main. Segundo, traen los cambios del repositorio original. Tercero, suben esos cambios a su fork.
+
+Esto asegura que su fork está al día.
+
+Si no hacen esto, pueden tener conflictos después. Imagínense que ustedes están trabajando en un archivo, y al mismo tiempo yo cambio ese mismo archivo. Cuando quieran hacer el PR, va a haber un conflicto y va a ser más complicado de resolver.
+
+Por eso: siempre sincronicen antes de empezar.
+Háganlo un hábito. Como lavarse los dientes.`
+    },
+    {
+      "time": "1:05-1:25",
+      "details": `Ejercicio. Van a hacer el fork y configuración completa.
+
+Pasos:
+
+Primero, hagan fork del repositorio. Si ya lo hicieron conmigo, perfecto.
+
+Segundo, clónenlo a su máquina.
+
+Tercero, agreguen el remoto upstream.
+
+Cuarto, verifiquen con git remote -v.
+
+Quinto, traigan los últimos cambios con git pull upstream main.
+
+Tienen 20 minutos. Cuando terminen, levanten la mano y voy a verificar que tengan los dos remotos configurados.
+
+\textit{Recorrer el aula.}`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar.
+
+Hoy hicieron fork del repositorio, lo clonaron, configuraron origin y upstream, y aprendieron a sincronizar.
+
+Ahora tienen su copia local lista para trabajar.
+
+En la siguiente clase vamos a hacer nuestro primer Pull Request. Vamos a crear una rama, hacer un cambio, y abrir un PR.
+
+Asegúrense de tener git configurado con su nombre y email:
+
+\`\`\`bash
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+\`\`\`
+
+Nos vemos en la próxima clase.`
+    }
+  ],
+  'lesson-8-3': [
+    {
+      "time": "0:00-0:10",
+      "details": `Hoy es el día. Vamos a abrir nuestro primer Pull Request.
+
+Pero antes, hablemos de las ramas.
+
+En git, main es la rama principal. Es el código que está en producción. Es sagrada. Nunca, nunca, nunca trabajen directamente en main.
+
+Cada cambio que hagan va en su propia rama. Una rama es como un borrador. Trabajan ahí, y cuando está listo, lo incorporan a main.
+
+Los nombres de rama deben ser descriptivos:
+
+fix/typo-readme → si van a corregir un typo
+feature/validacion-email → si van a agregar una validación
+docs/contributing-guide → si van a mejorar documentación
+
+El patrón es: tipo/descripcion-corta.
+
+¿Por qué? Porque cuando alguien vea la rama, debe entender de qué se trata sin tener que abrirla.
+Y porque después, esa rama se convierte en el Pull Request.`
+    },
+    {
+      "time": "0:10-0:25",
+      "details": `Vamos a hacerlo paso a paso en vivo.
+
+Primero, sincronicen su fork:
+
+\`\`\`bash
+git checkout main
+git pull upstream main
+git push origin main
+\`\`\`
+
+Ya están en main y está actualizada. Ahora creen una rama:
+
+\`\`\`bash
+git checkout -b fix/typo-readme
+\`\`\`
+
+El comando git checkout -b hace dos cosas: crea la rama y se mueve a ella.
+
+Ahora abran el README.md en su editor. Busquen un typo o algo que mejorar. Si no encuentran, pueden agregar una línea al final, algo como "Contribuciones bienvenidas".
+
+Hagan el cambio. Guarden el archivo.
+
+Ahora vean qué cambió:
+
+\`\`\`bash
+git status
+\`\`\`
+
+git status les muestra los archivos modificados.`
+    },
+    {
+      "time": "0:25-0:35",
+      "details": `Ahora vamos a hacer commit.
+
+Primero, agregamos el archivo al staging:
+
+\`\`\`bash
+git add README.md
+\`\`\`
+
+Si quieren agregar todos los archivos modificados, pueden usar git add .
+
+Luego, el commit:
+
+\`\`\`bash
+git commit -m "Corregir typo en la sección de instalación del README"
+\`\`\`
+
+Fíjense en el mensaje. Es descriptivo. Dice exactamente qué cambió.
+
+Mensajes malos: "fix", "cambios", "actualización", "cosas".
+
+Mensajes buenos: "Corregir typo en README", "Agregar validación de email en formulario de registro".
+
+Los mensajes de commit son comunicación con otros developers. Cuando alguien vea el historial de commits, debe entender qué cambió sin tener que ver el código.
+
+Ahora suban la rama a GitHub:
+
+\`\`\`bash
+git push origin fix/typo-readme
+\`\`\`
+
+Fíjense: push a origin, no a upstream. Es su fork.`
+    },
+    {
+      "time": "0:35-0:50",
+      "details": `Ahora viene la magia.
+
+Vayan a su repositorio en GitHub: https://github.com/TU_USUARIO/sensei-platform
+
+Arriba va a aparecer un banner amarillo que dice algo como:
+
+"fix/typo-readme had recent pushes" y un botón que dice "Compare & Pull Request".
+
+Hagan clic ahí.
+
+Se abre la página para crear el Pull Request. Vean los campos:
+
+Base repository: devf-sensei/sensei-platform
+Base: main
+Head repository: TU_USUARIO/sensei-platform
+Compare: fix/typo-readme
+
+Base es el repositorio original, rama main.
+Head es su fork, rama fix/typo-readme.
+
+Título: escriban un título descriptivo. Por ejemplo: "Corregir typo en README"
+
+Descripción: expliquen qué cambió y por qué.
+
+\`\`\`
+## Descripción
+Corregí un typo en la sección de instalación del README.
+
+## Cambios realizados
+- Cambié "intalación" por "instalación"
+
+## Issue relacionado
+Closes #12
+\`\`\`
+
+Si el cambio está relacionado con un issue, pueden escribir "Closes #numero" y cuando se mergee el PR, el issue se cierra automáticamente.
+
+Finalmente, hagan clic en "Create Pull Request".
+
+¡Felicidades! Acaban de abrir su primer Pull Request.`
+    },
+    {
+      "time": "0:50-0:55",
+      "details": `Ahora que el PR está abierto, ¿qué sigue?
+
+Yo voy a recibir una notificación de que hay un PR nuevo. Voy a entrar a revisarlo.
+
+Voy a ver los cambios que hicieron. Voy a dejar comentarios si algo se puede mejorar. Y si todo está bien, voy a aprobarlo.
+
+Puede que pida cambios. Eso es normal. No significa que lo hicieron mal. Significa que podemos mejorarlo.
+
+Cuando el PR esté aprobado, voy a mergearlo. Sus cambios van a pasar a formar parte del repositorio principal.
+
+Y ahí, oficialmente, van a ser contribuidores open source.
+
+¿Ven? No es complicado. Son unos pocos comandos y un clic en GitHub.`
+    },
+    {
+      "time": "0:55-1:20",
+      "details": `Ejercicio. Van a abrir su primer Pull Request.
+
+Pasos:
+
+Primero, sincronicen su fork con upstream.
+
+Segundo, creen una rama con un nombre descriptivo.
+
+Tercero, hagan un cambio pequeño. Un typo en el README, una línea de documentación, algo simple.
+
+Cuarto, hagan git add y git commit con un mensaje descriptivo.
+
+Quinto, hagan git push a su rama.
+
+Sexto, abran el Pull Request en GitHub con una descripción clara.
+
+Tienen 25 minutos. Levanten la mano si se atoran.
+
+\textit{Recorrer el aula y ayudar.}`
+    },
+    {
+      "time": "1:20-1:25",
+      "details": `Vamos a revisar los PRs que abrieron.
+
+Voy a entrar al repositorio y mirar los PRs. Voy a dejar comentarios.
+
+Miren sus notificaciones de GitHub. Si ven que alguien les dejó un comentario, respóndanlo.
+
+Voy a revisar algunos PRs en vivo para que vean cómo se ve el code review.
+
+Lo importante: no se tomen los comentarios como algo personal. El code review es sobre el código, no sobre ustedes. Todos empezamos así.`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar.
+
+Hoy hicieron algo importante: abrieron su primer Pull Request.
+
+Puede que todavía no esté mergeado. Depende de si yo lo apruebo o pido cambios. Pero el PR está ahí. Ya está.
+
+En la siguiente clase vamos a ver exactamente eso: cómo funciona el code review, cómo responder a los comentarios, y cómo se mergea un PR.
+
+No se preocupen si pidieron cambios. Es parte del proceso.
+
+Nos vemos en la próxima clase.`
+    }
+  ],
+  'lesson-8-4': [
+    {
+      "time": "0:00-0:10",
+      "details": `Hoy vamos a hablar de code review.
+
+El code review es cuando otro developer revisa tu código. Es una práctica estándar en la industria. En casi todas las empresas de tecnología, ningún código llega a producción sin ser revisado por al menos otra persona.
+
+¿Para qué sirve?
+
+Primero, para encontrar errores antes de que lleguen a producción. Una segunda persona ve cosas que tú no viste.
+
+Segundo, para compartir conocimiento. Cuando alguien revisa tu código, aprende cómo piensas. Cuando tú revisas el código de alguien, aprendes nuevas formas de hacer las cosas.
+
+Tercero, para mantener consistencia. El equipo acuerda ciertas prácticas y el code review asegura que se sigan.
+
+Y algo importante: el code review no es personal. Cuando alguien te dice "esta función se puede mejorar", no está diciendo "eres mal programador". Está diciendo "este código se puede mejorar".
+
+Separen siempre su identidad de su código. El código no es ustedes.`
+    },
+    {
+      "time": "0:10-0:25",
+      "details": `Vamos a revisar algunos PRs en vivo.
+
+Abro el repositorio, voy a Pull Requests, y vamos a ver los que abrieron.
+
+Miren, aquí tengo varios PRs. Vamos a abrir uno.
+
+Veo que este PR cambia el README. Voy a revisar la pestaña "Files changed".
+
+Aquí puedo ver exactamente qué líneas cambiaron. Las líneas en verde son las que se agregaron. Las líneas en rojo son las que se eliminaron.
+
+Puedo dejar un comentario en una línea específica. Por ejemplo, si veo un error, hago clic en el signo + al lado de la línea y escribo mi comentario.
+
+También puedo aprobar el PR o solicitar cambios.
+
+Si solo dejo un comentario sin aprobar ni solicitar cambios, es un comentario informal, no bloquea el PR.
+
+Si solicito cambios, el PR queda en pausa hasta que se hagan los cambios.
+
+Si apruebo, el PR está listo para mergear.
+
+Vamos a hacer los tres tipos de review para que vean cómo funciona.`
+    },
+    {
+      "time": "0:25-0:40",
+      "details": `Ahora, ¿cómo responden cuando alguien les deja comentarios en su PR?
+
+Vamos a verlo.
+
+Primero, reciban una notificación de GitHub. Puede ser por email o en la misma página del PR.
+
+Segundo, lean el comentario con mente abierta. No se pongan a la defensiva.
+
+Tercero, si están de acuerdo, hagan el cambio.
+
+\`\`\`bash
+git checkout fix/typo-readme
+# hacer los cambios
+git add .
+git commit -m "Corregir según code review"
+git push origin fix/typo-readme
+\`\`\`
+
+El PR se actualiza automáticamente. No necesitan abrir un nuevo PR.
+
+Cuarto, respondan al comentario en GitHub. Escriban algo como:
+
+"Gracias por la sugerencia. Ya lo corregí en el último commit."
+
+Eso le avisa al revisor que ya está listo para una nueva revisión.
+
+Si no están de acuerdo con un comentario, pueden explicar su punto de vista. Pero siempre con respeto.
+
+"A mí me parece que esta otra forma funciona mejor porque..."
+
+El code review es una conversación, no una orden.`
+    },
+    {
+      "time": "0:40-0:50",
+      "details": `Cuando el PR está aprobado, alguien tiene que mergearlo.
+
+En la mayoría de los proyectos, el maintainer es quien mergea. En algunos proyectos, tú puedes mergear tu propio PR después de la aprobación.
+
+En este proyecto, yo voy a mergear los PRs.
+
+Hay tres formas de mergear en GitHub:
+
+Primero, Create a merge commit. Mantiene todo el historial de commits de tu rama. Es la opción más común.
+
+Segundo, Squash and merge. Combina todos los commits de tu rama en un solo commit. El historial queda más limpio.
+
+Tercero, Rebase and merge. Pone tus commits al frente del historial, como si los hubieras hecho justo ahora.
+
+Para este proyecto vamos a usar Squash and merge.
+
+Cuando el PR está mergeado, el cambio ya está en el repositorio principal. Tu código está en producción.
+
+Después del merge, debes sincronizar tu fork:
+
+\`\`\`bash
+git checkout main
+git pull upstream main
+git push origin main
+\`\`\`
+
+Y puedes borrar la rama del PR para mantener tu fork limpio:
+
+\`\`\`bash
+git branch -d fix/typo-readme
+git push origin --delete fix/typo-readme
+\`\`\``
+    },
+    {
+      "time": "0:50-1:10",
+      "details": `Ejercicio: Van a responder al code review.
+
+Si yo les dejé comentarios en su PR, van a hacer los cambios solicitados.
+
+Si su PR ya fue aprobado, van a ayudar a otro compañero con el suyo.
+
+Pasos:
+
+Primero, revisen si tienen notificaciones en GitHub.
+
+Segundo, si hay comentarios, leanlos y hagan los cambios.
+
+Tercero, hagan commit y push para actualizar el PR.
+
+Cuarto, respondan a los comentarios.
+
+Tienen 20 minutos. Yo voy a ir revisando los PRs actualizados.
+
+\textit{Recorrer el aula.}`
+    },
+    {
+      "time": "1:10-1:20",
+      "details": `Vamos a aprobar algunos PRs en vivo.
+
+Voy a entrar a los PRs que se actualizaron después del code review.
+
+Este está bien. Código limpio, cambios correctos. Apruebo.
+
+Y hago clic en "Merge pull request".
+
+¡Listo! El PR está mergeado.
+
+Este código ya está en el repositorio principal.
+
+Felicidades a [nombre del estudiante] por su primer PR mergeado.
+
+Vamos a seguir con los demás.
+
+\textit{Aprobar PRs uno por uno, celebrando cada merge.}`
+    },
+    {
+      "time": "1:20-1:25",
+      "details": `Después del merge, no se olviden de sincronizar su fork.
+
+\`\`\`bash
+git checkout main
+git pull upstream main
+git push origin main
+\`\`\`
+
+Y borren la rama que usaron para el PR.
+
+\`\`\`bash
+git branch -d fix/typo-readme
+git push origin --delete fix/typo-readme
+\`\`\`
+
+Mantener el fork limpio es importante. Si acumulan ramas viejas, después no saben cuáles están activas y cuáles no.`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar.
+
+Hoy vimos el code review. Cómo se revisa el código, cómo responder a comentarios, cómo se aprueba y mergea un PR.
+
+Ya varios de ustedes tienen su primer PR mergeado. Los que no, tranquilos, vamos a seguir trabajando.
+
+En la siguiente clase vamos a ver cómo navegar issues, cómo elegir en qué trabajar, y cómo colaborar con otros contribuidores.
+
+Para la casa: si su PR no está mergeado todavía, no se preocupen. Lo vamos a retomar en la siguiente clase.
+
+Nos vemos en la próxima clase.`
+    }
+  ],
+  'lesson-8-5': [
+    {
+      "time": "0:00-0:10",
+      "details": `Hoy vamos a hablar de issues.
+
+Los issues son el corazón de la comunicación en un proyecto open source. Es donde se reportan bugs, se sugieren mejoras, se hacen preguntas.
+
+Cualquier persona puede crear un issue. No necesitas ser contribuidor del proyecto. Si usas un software y encuentras un bug, puedes crear un issue.
+
+Los issues tienen labels. Las labels son etiquetas que ayudan a organizar y filtrar.
+
+Las labels más importantes para ustedes:
+
+Good first issue, en verde. Son issues diseñados para principiantes. Suelen ser tareas pequeñas, bien explicadas, con todo lo que necesitas saber para resolverlas.
+
+Help wanted, en amarillo. El proyecto está pidiendo ayuda con esto.
+
+Bug, en rojo. Algo está roto y hay que arreglarlo.
+
+Enhancement, en azul. Una mejora o funcionalidad nueva.
+
+Documentation. Cosas de documentación.
+
+Cuando empiecen en un proyecto nuevo, filtren por good first issue. Es la mejor forma de empezar.`
+    },
+    {
+      "time": "0:10-0:20",
+      "details": `Vamos a ver cómo navegar y filtrar issues en el repositorio.
+
+Abran https://github.com/devf-sensei/sensei-platform/issues
+
+Aquí están todos los issues del proyecto. Por defecto, solo se ven los abiertos.
+
+Pueden filtrar por label. Hagan clic en "Labels" y seleccionen "good first issue".
+
+Ahora solo se ven los issues aptos para principiantes.
+
+También pueden buscar issues por palabra clave. Por ejemplo, si quieren trabajar en algo de documentación, pueden buscar "docs".
+
+O pueden ordenarlos por más recientes, más comentados, etc.
+
+Vamos a abrir un issue etiquetado como good first issue para ver cómo es.
+
+Tiene un título descriptivo. Tiene una descripción que explica el problema. A veces incluye pasos para reproducir si es un bug. Y a veces incluye sugerencias de cómo resolverlo.
+
+Eso es un buen issue. Cuando vean uno así, ya tienen todo lo que necesitan para empezar a trabajar.`
+    },
+    {
+      "time": "0:20-0:35",
+      "details": `Antes de empezar a trabajar en un issue, hay que comunicarlo.
+
+¿Por qué? Porque si dos personas empiezan a trabajar en el mismo issue al mismo tiempo, una de las dos va a perder el tiempo.
+
+El proceso es:
+
+Primero, encuentras un issue que te interese.
+
+Segundo, escribes un comentario: "Hola, me gustaría trabajar en este issue. ¿Me lo pueden asignar?"
+
+Tercero, el maintainer responde y te asigna el issue.
+
+Cuarto, ya puedes empezar a trabajar.
+
+A veces el maintainer te va a dar contexto adicional. "Claro, aquí hay algunos archivos que te pueden ayudar" o "ten en cuenta que esto depende de X".
+
+Vean este issue. Voy a comentar: "Me gustaría trabajar en esto" y luego lo voy a asignar a alguien.
+
+¿Ven? Sencillo.
+
+Y cuando hagan el PR, pueden incluir "Closes #[número]" en la descripción. Cuando se mergee el PR, el issue se cierra automáticamente.
+
+Es una forma de mantener todo organizado.`
+    },
+    {
+      "time": "0:35-0:50",
+      "details": `Ahora, ¿cómo se crea un issue?
+
+Digamos que encuentran un bug en la plataforma. Por ejemplo, el botón de guardar no funciona en el celular.
+
+Van a Issues, y hacen clic en "New Issue".
+
+Puede que el proyecto tenga una plantilla. Si la tiene, la usan. Si no, escriben libremente.
+
+Un buen reporte de bug tiene:
+
+Título claro. "El botón de guardar no responde en móvil" es mejor que "no funciona".
+
+Descripción. Expliquen qué está pasando.
+
+Pasos para reproducir. Así el maintainer puede ver el error por sí mismo.
+
+1. Abrir el blog en un celular
+2. Ir a Nuevo Post
+3. Llenar los campos
+4. Hacer clic en Guardar
+5. No pasa nada
+
+Comportamiento esperado. ¿Qué debería pasar?
+
+El post debería crearse y mostrar un mensaje de éxito.
+
+Información adicional. Navegador, dispositivo, capturas de pantalla.
+
+Un issue bien escrito se resuelve más rápido. El maintainer no tiene que estar preguntando "¿qué navegador usas?" o "¿puedes explicar mejor?"
+
+También pueden crear issues para sugerir mejoras. "Se me ocurre que podríamos agregar X funcionalidad" o "la documentación de Y está incompleta".
+
+Toda contribución empieza con un issue. Incluso si van a hacer el cambio ustedes mismos, crear el issue primero ayuda a discutir el enfoque antes de escribir código.`
+    },
+    {
+      "time": "0:50-1:15",
+      "details": `Ejercicio. Dos partes.
+
+Primera parte: Van a comentar en un issue existente. Elijan un issue que les interese, escriban que les gustaría trabajarlo, y esperen a que los asigne.
+
+Segunda parte: Van a crear un issue nuevo. Piensen en algo que les gustaría mejorar del proyecto. Puede ser un bug que encontraron, una mejora que se les ocurra, o documentación que falta.
+
+Escriban el issue con:
+
+Título claro
+Descripción detallada
+Si es bug: pasos para reproducir
+Si es mejora: por qué sería útil
+
+Tienen 25 minutos.
+
+\textit{Recorrer el aula.}`
+    },
+    {
+      "time": "1:15-1:20",
+      "details": `Vamos a revisar los issues que crearon.
+
+\textit{Leer los issues, etiquetarlos con labels, asignarlos a los estudiantes.}
+
+Este está muy bien. Tiene título claro y descripción detallada. Le voy a poner label de enhancement.
+
+Este también. Es un bug que podemos reproducir. Le pongo label de bug y good first issue.
+
+Muy buen trabajo. Todos estos issues son válidos y los vamos a ir resolviendo.`
+    },
+    {
+      "time": "1:20-1:25",
+      "details": `Hablemos de cómo colaborar con otros contribuidores.
+
+El open source no es un esfuerzo individual. Es comunidad.
+
+Pueden comentar en issues de otras personas para ofrecer ayuda. "Yo trabajé en algo similar, si necesitas ayuda avísame".
+
+Pueden revisar PRs de otros estudiantes. La revisión no la tengo que hacer solo yo. Si ven un PR y tienen sugerencias, pueden comentar.
+
+Pueden trabajar en equipo en un mismo issue. Uno hace una parte, otro hace otra.
+
+Y pueden compartir conocimiento. Si alguien preguntó algo en un issue y ustedes saben la respuesta, respondan.
+
+Entre más participen, más aprenden. Y la comunidad se vuelve más fuerte.`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar.
+
+Hoy aprendieron a navegar issues, filtrar por labels, comentar, asignarse tareas, y crear issues nuevos.
+
+Ya tienen todas las herramientas. Saben hacer fork, saben hacer PR, saben navegar issues.
+
+En la última clase del módulo van a hacer su contribución final. Van a elegir un issue, implementar la solución, abrir el PR, pasar por code review, y recibir aprobación.
+
+Prepárense. La siguiente clase es la fiesta de merge.
+
+Nos vemos en la próxima clase.`
+    }
+  ],
+  'lesson-8-6': [
+    {
+      "time": "0:00-0:10",
+      "details": `Bienvenidos a la última clase del módulo.
+
+Hoy es el día. No es un simulacro. Hoy van a hacer una contribución real a un proyecto open source.
+
+Pero primero, un repaso rápido de todo lo que aprendimos.
+
+Clase 1: qué es open source, por qué contribuir, el flujo de contribución.
+
+Clase 2: fork, clone, remotos origin y upstream, sincronización.
+
+Clase 3: ramas, commits, push, Pull Request.
+
+Clase 4: code review, feedback, aprobación y merge.
+
+Clase 5: issues, labels, cómo elegir y comunicarse.
+
+Y hoy, clase 6: la contribución final.
+
+Van a elegir un issue, implementar la solución, abrir el PR, recibir code review, y si todo sale bien, su PR va a ser mergeado.
+
+Su código va a estar en producción. Su nombre va a quedar en el historial del proyecto.
+
+¿Listos? Vamos.`
+    },
+    {
+      "time": "0:10-0:15",
+      "details": `Antes de empezar a programar, cada uno va a elegir un issue.
+
+Tienen tres opciones:
+
+Opción 1: tomar un issue existente del repositorio. Pueden ser los issues que creamos en la clase anterior o los que ya estaban.
+
+Opción 2: si en la clase anterior crearon un issue, pueden trabajar en su propio issue.
+
+Opción 3: implementar una mejora que encontraron durante el módulo pero que no está reportada como issue.
+
+El tamaño no importa. Un cambio de una línea es igual de valioso que un cambio de cien líneas. Lo importante es que sea real.
+
+Tómense 5 minutos para decidir en qué van a trabajar. Si alguien no sabe qué elegir, levanten la mano y los ayudo.
+
+\textit{Ayudar a quienes no tengan issue.}`
+    },
+    {
+      "time": "0:15-0:45",
+      "details": `Tienen 30 minutos para implementar su contribución.
+
+Recuerden el flujo:
+
+Primero, sincronicen su fork.
+
+\`\`\`bash
+git checkout main
+git pull upstream main
+git push origin main
+\`\`\`
+
+Segundo, creen una rama.
+
+\`\`\`bash
+git checkout -b feature/mi-mejora
+\`\`\`
+
+Tercero, implementen la solución. Usen su editor.
+
+Cuarto, hagan commit.
+
+\`\`\`bash
+git add .
+git commit -m "Descripción clara del cambio"
+\`\`\`
+
+Quinto, suban su rama.
+
+\`\`\`bash
+git push origin feature/mi-mejora
+\`\`\`
+
+Sexto, abran el Pull Request.
+
+No se olviden de poner "Closes #[número]" en la descripción si están resolviendo un issue específico.
+
+Yo voy a ir pasando por los asientos para ayudar.
+
+\textit{Recorrer el aula.}`
+    },
+    {
+      "time": "0:45-1:00",
+      "details": `Vamos abriendo los Pull Requests.
+
+Los que ya terminaron, abran su PR. Los que están cerca, terminen y abran.
+
+Una vez que tengan el PR abierto, avísenme para que lo revise.
+
+Mientras esperan, pueden ayudar a un compañero que esté atorado.
+
+\textit{Esperar a que todos abran sus PRs.}`
+    },
+    {
+      "time": "1:00-1:15",
+      "details": `Voy a revisar los PRs en vivo.
+
+\textit{Abrir cada PR, revisar, dejar comentarios si es necesario, aprobar.}
+
+Este PR está bien. Buenos cambios, código limpio.
+
+Request changes: aquí falta manejar este caso.
+
+Aprobado: este está listo.
+
+Voy a mergear los que están aprobados.
+
+\textit{Mergear PRs uno por uno, celebrando cada merge.}
+
+¡Felicidades! Su PR está mergeado. Su código ya está en el repositorio principal.
+
+\textit{Continuar con los demás PRs.}`
+    },
+    {
+      "time": "1:15-1:20",
+      "details": `Vamos a celebrar.
+
+Cada uno, díganos:
+
+Su nombre, qué contribución hicieron, y cómo se sienten.
+
+\textit{Dar la palabra a cada estudiante.}
+
+Esto es enorme. Tienen su primera contribución open source.
+
+Y esto es para siempre. Pueden ir a su perfil de GitHub y va a aparecer la contribución. Pueden mostrarlo en entrevistas.
+
+Voy a tomar una captura de la página de Pull Requests para guardar el momento.
+
+Todos los que tienen el merge, ya son oficialmente contribuidores open source.`
+    },
+    {
+      "time": "1:20-1:25",
+      "details": `Reflexionemos un momento.
+
+Hace 6 clases, muchos de ustedes nunca habían hecho un fork. Nunca habían abierto un PR. Nunca habían recibido un code review.
+
+Hoy tienen código en producción.
+
+Esto no es un ejercicio. No es un proyecto simulado. Es real.
+
+Cuando vayan a una entrevista de trabajo y les pregunten "¿has trabajado con git en equipo?", pueden decir que sí. Y mostrar sus PRs.
+
+Cuando les pregunten "¿has contribuido a open source?", pueden decir que sí. Y mostrar el repositorio.
+
+Esto los diferencia del 90% de los developers que aplican a esos trabajos.
+
+Aplausos para todos.`
+    },
+    {
+      "time": "1:25-1:30",
+      "details": `Vamos a cerrar el módulo y el curso.
+
+Esto no termina aquí. Contribuir a open source es un hábito, no un evento.
+
+Sigan el repositorio en GitHub. Activen las notificaciones con Watch. Cuando vean un issue que puedan resolver, trabajen en él.
+
+Exploren otros proyectos. GitHub tiene millones de repositorios open source. Busquen proyectos que les interesen y vean si tienen issues para principiantes.
+
+Y recuerden: todos los grandes developers empezaron exactamente donde ustedes están hoy.
+
+Nadie nace sabiendo. Todas las contribuciones, por pequeñas que sean, importan.
+
+De estudiante a contribuidor.
+De consumir a crear.
+De aprender a enseñar.
+
+Su código está en producción.
+Su nombre está en el historial.
+Son parte de algo más grande.
+
+Felicitaciones.
+
+¿Alguna pregunta final? ¿Algo que quieran compartir?
+
+Nos vemos en el siguiente módulo.`
+    }
   ]
 };
+

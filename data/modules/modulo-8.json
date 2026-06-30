@@ -1,0 +1,501 @@
+{
+  "id": "modulo-8",
+  "title": "Contribución Open Source con GitHub",
+  "number": 8,
+  "description": "Aprende a contribuir a proyectos open source usando GitHub. Desde hacer fork hasta crear pull requests y ver tus aportes aprobados.",
+  "weeks": 2,
+  "icon": "github",
+  "color": "slate",
+  "lessons": [
+    {
+      "id": "lesson-8-1",
+      "moduleId": "modulo-8",
+      "title": "Introducción al Open Source",
+      "number": 1,
+      "week": 1,
+      "description": "Entiende qué es el open source, por qué contribuir, y cómo funciona el flujo de contribución en proyectos colaborativos.",
+      "objectives": [
+        "Comprender qué es el software open source y sus principios.",
+        "Identificar los beneficios de contribuir a proyectos open source.",
+        "Conocer el flujo general de contribución: fork, cambios, PR, revisión, merge.",
+        "Familiarizarse con el repositorio del proyecto al que contribuiremos."
+      ],
+      "project": {
+        "title": "Explorar el repositorio del proyecto",
+        "description": "Identifica las secciones principales del repositorio: README, issues, pull requests, proyectos, y licencia."
+      },
+      "senseiTips": [
+        "Explica con ejemplos reales: Linux, React, VS Code son open source.",
+        "Muestra tu propio perfil de GitHub y contribuciones.",
+        "El proyecto al que contribuirán es la plataforma Sensei/DevF donde están viendo esta clase.",
+        "Haz énfasis en que sus contribuciones serán revisadas y aprobadas por ti."
+      ],
+      "readings": [
+        {
+          "title": "Guía de Open Source",
+          "url": "https://opensource.guide/",
+          "description": "Guía oficial para contribuir a open source",
+          "type": "article"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Repositorio del proyecto",
+          "url": "https://github.com/devf-sensei/sensei-platform",
+          "description": "Proyecto al que contribuiremos"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Explorar el repositorio",
+          "description": "Navega el repositorio del proyecto y familiarízate con su estructura",
+          "steps": [
+            "Encuentra y lee el README del proyecto",
+            "Explora la sección de Issues",
+            "Mira los Pull Requests abiertos y cerrados",
+            "Identifica la licencia del proyecto",
+            "Revisa la estructura de carpetas"
+          ],
+          "duration": "20 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Navegar un repositorio open source",
+          "description": "Recorrido guiado por el repositorio del proyecto en GitHub",
+          "code": "# Secciones principales de un repositorio:\n#\n# Code → el código fuente\n# Issues → tareas, bugs, mejoras\n# Pull Requests → contribuciones de otros\n# Projects → tablero de organización\n# Wiki → documentación\n# Security → políticas de seguridad\n# Insights → estadísticas del proyecto",
+          "duration": "15 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "¿Qué es el open source?", "description": "Definición, principios y ejemplos de proyectos open source", "type": "intro" },
+        { "time": "0:10-0:20", "section": "¿Por qué contribuir?", "description": "Beneficios: portafolio, comunidad, aprendizaje, experiencia real", "type": "explanation" },
+        { "time": "0:20-0:30", "section": "El flujo de contribución", "description": "Fork → cambios → PR → code review → aprobación → merge", "type": "demo" },
+        { "time": "0:30-0:45", "section": "Navegar el repositorio del proyecto", "description": "Recorrido guiado por el proyecto al que contribuiremos", "type": "demo" },
+        { "time": "0:45-0:55", "section": "Ejercicio: explorar el repositorio", "description": "Estudiantes exploran el repositorio siguiendo una guía", "type": "practice" },
+        { "time": "0:55-1:05", "section": "Issues: cómo encontrar tareas", "description": "Labels: good first issue, help wanted. Cómo leer y comentar issues", "type": "explanation" },
+        { "time": "1:05-1:20", "section": "Comunicación en proyectos open source", "description": "Netiqueta, cómo pedir ayuda, cómo ofrecer soluciones", "type": "explanation" },
+        { "time": "1:20-1:25", "section": "Revisión del ejercicio", "description": "Compartir hallazgos y resolver dudas", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Resumen y preparación para la siguiente clase: fork y git", "type": "closing" }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-8-2",
+      "moduleId": "modulo-8",
+      "title": "GitHub: Fork, Clone y Remotos",
+      "number": 2,
+      "week": 1,
+      "description": "Aprende a hacer fork de un repositorio, clonarlo localmente, configurar remotos y mantener tu fork actualizado.",
+      "objectives": [
+        "Hacer fork de un repositorio en GitHub.",
+        "Clonar el fork a tu máquina local.",
+        "Configurar remotos: origin y upstream.",
+        "Mantener el fork sincronizado con el repositorio original."
+      ],
+      "project": {
+        "title": "Fork del proyecto y configuración",
+        "description": "Haz fork del repositorio del proyecto, clónalo localmente y configura los remotos correctamente."
+      },
+      "senseiTips": [
+        "Haz el fork en vivo para que todos sigan el mismo paso.",
+        "Explica la diferencia entre origin (tu fork) y upstream (el original).",
+        "Muestra cómo verificar los remotos con git remote -v.",
+        "El ejercicio de sincronización es clave para evitar conflictos después."
+      ],
+      "readings": [
+        {
+          "title": "Fork a repo",
+          "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo",
+          "description": "Documentación oficial de GitHub sobre forks",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Repositorio original (upstream)",
+          "url": "https://github.com/devf-sensei/sensei-platform",
+          "description": "El repositorio principal al que harás fork"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Fork y configuración completa",
+          "description": "Haz fork, clona y configura los remotos",
+          "steps": [
+            "Haz fork del repositorio original en GitHub",
+            "Clona tu fork a tu máquina local",
+            "Agrega el remoto upstream",
+            "Verifica los remotos con git remote -v",
+            "Trae los últimos cambios del upstream"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Fork desde GitHub",
+          "description": "Hacer fork de un repositorio desde la interfaz de GitHub",
+          "code": "# Pasos:\n# 1. Ir al repositorio original\n# 2. Click en el botón \"Fork\" (arriba a la derecha)\n# 3. Elegir tu cuenta\n# 4. Esperar a que se cree el fork\n\n# Verificar:\n# https://github.com/TU_USUARIO/sensei-platform",
+          "duration": "10 min"
+        },
+        {
+          "title": "Clonar y configurar remotos",
+          "description": "Clonar el fork y configurar origin y upstream",
+          "code": "# Clonar tu fork\ngh repo clone TU_USUARIO/sensei-platform\n\n# O con git:\ngit clone https://github.com/TU_USUARIO/sensei-platform.git\ncd sensei-platform\n\n# Agregar el remoto upstream (el original)\ngit remote add upstream https://github.com/devf-sensei/sensei-platform.git\n\n# Verificar remotos\ngit remote -v\n# origin    https://github.com/TU_USUARIO/sensei-platform.git (fetch)\n# origin    https://github.com/TU_USUARIO/sensei-platform.git (push)\n# upstream  https://github.com/devf-sensei/sensei-platform.git (fetch)\n# upstream  https://github.com/devf-sensei/sensei-platform.git (push)",
+          "duration": "10 min"
+        },
+        {
+          "title": "Sincronizar fork con upstream",
+          "description": "Mantener tu fork actualizado con el repositorio original",
+          "code": "# Traer cambios del upstream\ncd sensei-platform\ngit checkout main\ngit pull upstream main\n\n# Subir los cambios a tu fork en GitHub\ngit push origin main\n\n# Hacer esto cada vez que vayas a empezar a trabajar",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "¿Qué es un fork?", "description": "Fork = copia del repositorio en tu cuenta. Sirve para tener tu propia versión", "type": "intro" },
+        { "time": "0:10-0:25", "section": "Hacer fork desde GitHub", "description": "Demostración en vivo: fork del repositorio del proyecto", "type": "demo" },
+        { "time": "0:25-0:35", "section": "Clonar el fork localmente", "description": "Clonar con gh CLI o git. Dónde guardar el proyecto", "type": "demo" },
+        { "time": "0:35-0:50", "section": "Configurar remotos: origin y upstream", "description": "Diferencia entre origin y upstream. git remote add upstream", "type": "demo" },
+        { "time": "0:50-1:05", "section": "Sincronizar fork con upstream", "description": "git pull upstream main. Mantener tu fork actualizado", "type": "demo" },
+        { "time": "1:05-1:25", "section": "Ejercicio: fork y configuración", "description": "Estudiantes hacen fork, clonan y configuran remotos", "type": "practice" },
+        { "time": "1:25-1:30", "section": "Revisión y cierre", "description": "Verificar que todos tengan origin y upstream configurados", "type": "review" }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-8-3",
+      "moduleId": "modulo-8",
+      "title": "Tu Primer Pull Request",
+      "number": 3,
+      "week": 1,
+      "description": "Aprende a crear tu primer pull request: desde crear una rama hasta abrir el PR en GitHub.",
+      "objectives": [
+        "Crear una rama (branch) para tu contribución.",
+        "Hacer cambios en el código y confirmarlos con commits.",
+        "Subir tu rama a GitHub con git push.",
+        "Abrir un Pull Request desde tu fork."
+      ],
+      "project": {
+        "title": "Primer Pull Request",
+        "description": "Crea un cambio pequeño en el proyecto (mejorar documentación, corregir typo) y abre tu primer PR."
+      },
+      "senseiTips": [
+        "Prepara un issue sencillo para que todos trabajen en lo mismo (ej: agregar un link faltante en el README).",
+        "Haz el primer PR en vivo para que vean todo el flujo.",
+        "Explícales que el PR no se mergea inmediatamente, pasa por code review.",
+        "Usa mensajes de commit descriptivos, no 'fix' o 'changes'."
+      ],
+      "readings": [
+        {
+          "title": "Crear un Pull Request",
+          "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request",
+          "description": "Documentación oficial de GitHub sobre PRs",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Issues del proyecto",
+          "url": "https://github.com/devf-sensei/sensei-platform/issues",
+          "description": "Busca issues etiquetados como 'good first issue'"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Abrir tu primer Pull Request",
+          "description": "Sigue el flujo completo: rama, cambios, commit, push y PR",
+          "steps": [
+            "Selecciona un issue pequeño para trabajar",
+            "Asigna el issue a ti mismo (o comenta que vas a trabajar en él)",
+            "Crea una rama con un nombre descriptivo",
+            "Haz los cambios necesarios en el código",
+            "Haz commit con un mensaje descriptivo",
+            "Sube tu rama a GitHub",
+            "Abre un Pull Request contra el repositorio original",
+            "Escribe una descripción clara del PR"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Flujo completo: rama → cambios → PR",
+          "description": "Crear rama, hacer cambios, commit, push y abrir PR",
+          "code": "# 1. Sincronizar con upstream primero\ngit checkout main\ngit pull upstream main\ngit push origin main\n\n# 2. Crear una rama para tu contribución\ngit checkout -b fix/typo-readme\n\n# 3. Hacer cambios (editar archivos)\n# Usa tu editor para hacer los cambios\n\n# 4. Ver qué archivos cambiaron\ngit status\n\n# 5. Agregar archivos al staging\ngit add .\n\n# 6. Hacer commit\ngit commit -m \"Corregir typo en el README\"\n\n# 7. Subir la rama a GitHub\ngit push origin fix/typo-readme\n\n# 8. Ir a GitHub y abrir el Pull Request\n# GitHub muestra un botón automáticamente",
+          "duration": "15 min"
+        },
+        {
+          "title": "Escribir una buena descripción de PR",
+          "description": "Qué incluir en la descripción de un Pull Request",
+          "code": "## Descripción\nCorregí un typo en la sección de instalación del README.\n\n## Cambios realizados\n- Cambié \"intalación\" por \"instalación\"\n\n## Issue relacionado\nCloses #12\n\n## Checklist\n- [x] Los cambios funcionan correctamente\n- [x] Seguí las guías de contribución\n- [x] Mis commits tienen mensajes descriptivos",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "El flujo de trabajo con ramas", "description": "Por qué usar ramas: main siempre debe estar limpia", "type": "intro" },
+        { "time": "0:10-0:25", "section": "Crear rama y hacer cambios", "description": "git checkout -b, hacer cambios con el editor", "type": "demo" },
+        { "time": "0:25-0:35", "section": "Commit y push", "description": "git add, git commit, git push. Mensajes de commit descriptivos", "type": "demo" },
+        { "time": "0:35-0:50", "section": "Abrir el Pull Request", "description": "Desde GitHub: botón Compare & Pull Request, escribir descripción", "type": "demo" },
+        { "time": "0:50-0:55", "section": "¿Qué pasa después del PR?", "description": "Code review, feedback, cambios solicitados, aprobación y merge", "type": "explanation" },
+        { "time": "0:55-1:20", "section": "Ejercicio: abrir tu primer PR", "description": "Estudiantes siguen el flujo completo y abren su primer PR", "type": "practice" },
+        { "time": "1:20-1:25", "section": "Revisión de PRs", "description": "Yo voy a revisar los PRs que abrieron y dar feedback", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Los PRs serán revisados y aprobados. En la siguiente clase: code review", "type": "closing" }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-8-4",
+      "moduleId": "modulo-8",
+      "title": "Code Review y Feedback",
+      "number": 4,
+      "week": 2,
+      "description": "Aprende cómo funciona el code review, cómo recibir feedback, cómo hacer cambios solicitados y cómo se aprueba un PR.",
+      "objectives": [
+        "Entender el propósito del code review.",
+        "Recibir feedback constructivo y aplicarlo.",
+        "Hacer cambios en un PR existente.",
+        "Entender cómo se aprueba y mergea un PR."
+      ],
+      "project": {
+        "title": "Responder a un code review",
+        "description": "Recibe feedback en tu PR, haz los cambios solicitados y espera la aprobación."
+      },
+      "senseiTips": [
+        "Revisa los PRs de la clase anterior en vivo para mostrar el proceso.",
+        "Se amable pero preciso en el feedback, igual que en un proyecto real.",
+        "Muestra cómo se ven los cambios solicitados en GitHub.",
+        "Explica que la aprobación final es tu responsabilidad como maintainer."
+      ],
+      "readings": [
+        {
+          "title": "Code Review Guidelines",
+          "url": "https://github.com/thoughtbot/guides/tree/main/code-review",
+          "description": "Guía de buenas prácticas para code review",
+          "type": "article"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Pull Requests abiertos",
+          "url": "https://github.com/devf-sensei/sensei-platform/pulls",
+          "description": "PRs de los estudiantes pendientes de revisión"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Responder a un code review",
+          "description": "Aplica los cambios solicitados en tu PR y responde al revisor",
+          "steps": [
+            "Lee los comentarios de code review en tu PR",
+            "Si hay cambios solicitados, hazlos en tu rama local",
+            "Haz commit de los cambios y sube con git push",
+            "Responde a cada comentario indicando qué hiciste",
+            "Solicita una nueva revisión",
+            "Espera la aprobación"
+          ],
+          "duration": "25 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Code review en vivo",
+          "description": "Revisar un PR real de un estudiante y dejar feedback",
+          "code": "# Comentarios comunes en code review:\n#\n# - \"Buen trabajo con esta funcionalidad\"\n# - \"Podríamos mejorar esta parte usando X en lugar de Y\"\n# - \"Falta manejar el caso donde...\"\n# - \"Hay un typo en la línea 15\"\n# - \"Este archivo tiene código que no se usa\"\n#\n# Tipos de review:\n# - Comment: solo un comentario, no bloquea\n# - Request changes: hay que hacer cambios antes de mergear\n# - Approve: está listo para mergear",
+          "duration": "15 min"
+        },
+        {
+          "title": "Actualizar un PR con cambios",
+          "description": "Hacer los cambios solicitados y actualizar el PR",
+          "code": "# 1. Ir a la rama del PR\ngit checkout fix/typo-readme\n\n# 2. Hacer los cambios solicitados\n# (editar archivos según el feedback)\n\n# 3. Commit y push\ngit add .\ngit commit -m \"Corregir según code review\"\ngit push origin fix/typo-readme\n\n# 4. En GitHub, responder a los comentarios\n# diciendo que ya se corrigió",
+          "duration": "10 min"
+        },
+        {
+          "title": "Merge del PR",
+          "description": "Cómo se mergea un PR aprobado al repositorio principal",
+          "code": "# El maintainer (yo) hace el merge en GitHub:\n#\n# Opciones de merge:\n# 1. Create a merge commit → mantiene todo el historial\n# 2. Squash and merge → combina todos los commits en uno\n# 3. Rebase and merge → historial lineal\n#\n# Para este proyecto usamos Squash and merge.\n#\n# Después del merge:\n# - El cambio ya está en el repositorio principal\n# - Puedes borrar tu rama\n# - Debes sincronizar tu fork",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "¿Qué es el code review?", "description": "Propósito: calidad, aprendizaje, consistencia. No es personal", "type": "intro" },
+        { "time": "0:10-0:25", "section": "Code review en vivo de PRs", "description": "Revisar PRs de estudiantes, mostrar el proceso", "type": "demo" },
+        { "time": "0:25-0:40", "section": "Recibir feedback y aplicarlo", "description": "Cómo responder a comentarios, hacer cambios, actualizar el PR", "type": "demo" },
+        { "time": "0:40-0:50", "section": "Aprobación y merge", "description": "¿Quién aprueba? El maintainer. Squash and merge", "type": "demo" },
+        { "time": "0:50-1:10", "section": "Ejercicio: responder a code review", "description": "Estudiantes aplican cambios solicitados en sus PRs", "type": "practice" },
+        { "time": "1:10-1:20", "section": "Aprobación de PRs en vivo", "description": "Revisar y aprobar los PRs corregidos", "type": "review" },
+        { "time": "1:20-1:25", "section": "Sincronizar después del merge", "description": "git pull upstream main para traer los cambios aprobados", "type": "explanation" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Resumen. En la siguiente clase: issues y comunicación avanzada", "type": "closing" }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-8-5",
+      "moduleId": "modulo-8",
+      "title": "Issues, Labels y Colaboración",
+      "number": 5,
+      "week": 2,
+      "description": "Aprende a navegar issues, usar labels, asignarte tareas y colaborar con otros contribuidores.",
+      "objectives": [
+        "Navegar y filtrar issues por labels.",
+        "Comentar en issues para ofrecerte a trabajar en ellos.",
+        "Crear issues reportando bugs o sugiriendo mejoras.",
+        "Colaborar con otros contribuidores en un mismo PR."
+      ],
+      "project": {
+        "title": "Reportar un issue y asignarte una tarea",
+        "description": "Encuentra un issue, comenta que vas a trabajarlo, y crea un issue nuevo si encuentras algo que mejorar."
+      },
+      "senseiTips": [
+        "Muestra cómo se ve un issue bien escrito vs uno mal escrito.",
+        "Explica que asignarse un issue evita que dos personas trabajen en lo mismo.",
+        "Anímalos a crear issues sobre cosas que les gustaría mejorar del proyecto.",
+        "Todos los issues que creen son válidos y serán considerados."
+      ],
+      "readings": [
+        {
+          "title": "Mastering Issues",
+          "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues",
+          "description": "Documentación oficial sobre Issues en GitHub",
+          "type": "documentation"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Issues del proyecto",
+          "url": "https://github.com/devf-sensei/sensei-platform/issues",
+          "description": "Issues disponibles para contribuir"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Crear un issue y asignarte una tarea",
+          "description": "Aprende a comunicarte efectivamente en GitHub Issues",
+          "steps": [
+            "Explora los issues existentes y filtra por 'good first issue'",
+            "Comenta en un issue que te gustaría trabajarlo",
+            "Espera a que te asignen o asígnate si tienes permisos",
+            "Encuentra algo que mejorar en el proyecto",
+            "Crea un issue nuevo descriptivo",
+            "Incluye: título claro, descripción, pasos para reproducir (si es bug)"
+          ],
+          "duration": "30 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Navegar y filtrar issues",
+          "description": "Cómo encontrar issues para trabajar usando labels y filtros",
+          "code": "# Labels comunes:\n# \n# 🟢 good first issue → para quienes empiezan\n# 🟡 help wanted → necesita colaboración\n# 🔵 enhancement → mejora o feature nueva\n# 🔴 bug → algo está mal\n# ⚫ documentation → docs\n#\n# URL para filtrar:\n# https://github.com/devf-sensei/sensei-platform/labels/good%20first%20issue",
+          "duration": "10 min"
+        },
+        {
+          "title": "Escribir un buen issue",
+          "description": "Cómo redactar un issue claro y útil",
+          "code": "## Título: [Bug] El botón de guardar no responde en móvil\n\n## Descripción\nCuando uso el blog en un celular, el botón de guardar\nno responde al hacer clic. Funciona bien en desktop.\n\n## Pasos para reproducir\n1. Abrir el blog en un celular\n2. Ir a \"Nuevo Post\"\n3. Llenar los campos\n4. Hacer clic en \"Guardar\"\n5. No pasa nada\n\n## Comportamiento esperado\nEl post debería crearse y mostrar un mensaje de éxito.\n\n## Captura de pantalla\n[imagen]\n\n## Información adicional\n- Navegador: Chrome Android\n- Dispositivo: Samsung Galaxy S23",
+          "duration": "10 min"
+        },
+        {
+          "title": "Trabajar en equipo en un PR",
+          "description": "Cómo múltiples personas pueden contribuir al mismo PR",
+          "code": "# Opción 1: Un PR por persona\n# Cada persona trabaja en su propia rama\n# Cada persona abre su propio PR\n# Cada PR se revisa y aprueba individualmente\n\n# Opción 2: Colaborar en un mismo PR\n# Una persona crea la rama y el PR\n# Otras personas contribuyen con commits\n# Se hace en el mismo repositorio del fork\n# git remote add colaborador https://github.com/...\n# git pull colaborador main",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "El ecosistema de Issues", "description": "Issues como centro de comunicación del proyecto", "type": "intro" },
+        { "time": "0:10-0:20", "section": "Labels y filtros", "description": "good first issue, help wanted, bug, enhancement. Cómo filtrar", "type": "demo" },
+        { "time": "0:20-0:35", "section": "Cómo comentar y asignarse un issue", "description": "Ofrecerse a trabajar, esperar asignación, etiqueta", "type": "demo" },
+        { "time": "0:35-0:50", "section": "Crear un issue nuevo", "description": "Bug reports, feature requests, mejoras. Ser descriptivo", "type": "demo" },
+        { "time": "0:50-1:15", "section": "Ejercicio: crear y comentar issues", "description": "Estudiantes comentan en issues y crean issues nuevos", "type": "practice" },
+        { "time": "1:15-1:20", "section": "Revisión de issues creados", "description": "Leer y etiquetar los issues que crearon los estudiantes", "type": "review" },
+        { "time": "1:20-1:25", "section": "Colaboración en equipo", "description": "Cómo trabajar con otros en un PR compartido", "type": "explanation" },
+        { "time": "1:25-1:30", "section": "Cierre", "description": "Preparación para la última clase: contribución final", "type": "closing" }
+      ],
+      "duration": "2h 30m"
+    },
+    {
+      "id": "lesson-8-6",
+      "moduleId": "modulo-8",
+      "title": "Contribución Final y Fiesta de Merge",
+      "number": 6,
+      "week": 2,
+      "description": "Haz tu contribución final al proyecto, pasa por code review, recibe aprobación y celebra tu primer merge open source.",
+      "objectives": [
+        "Seleccionar un issue real para trabajar.",
+        "Implementar la solución siguiendo el flujo completo.",
+        "Pasar por code review y recibir aprobación.",
+        "Ver tu código mergeado al repositorio principal."
+      ],
+      "project": {
+        "title": "Tu contribución open source",
+        "description": "Elige un issue, implementa la solución, abre PR, recibe aprobación y mira tu código en producción."
+      },
+      "senseiTips": [
+        "Prepárate para revisar varios PRs durante la clase.",
+        "Si algún estudiante se atasca, ayúdalo a encontrar un issue más sencillo.",
+        "Crea un ambiente de celebración cuando alguien recibe su primer merge.",
+        "Haz una captura de pantalla de todos los PRs mergeados para el recuerdo."
+      ],
+      "readings": [
+        {
+          "title": "Cómo ser un buen contribuidor open source",
+          "url": "https://opensource.guide/how-to-contribute/",
+          "description": "Guía completa para contribuir a open source",
+          "type": "article"
+        }
+      ],
+      "videos": [],
+      "senseiProjectLinks": [
+        {
+          "title": "Repositorio del proyecto",
+          "url": "https://github.com/devf-sensei/sensei-platform",
+          "description": "Proyecto al que harás tu contribución"
+        }
+      ],
+      "practices": [
+        {
+          "title": "Contribución open source completa",
+          "description": "Flujo completo desde cero: fork → PR → merge",
+          "steps": [
+            "Encuentra un issue en el que quieras trabajar",
+            "Comenta en el issue que vas a trabajarlo",
+            "Sincroniza tu fork con upstream",
+            "Crea una rama para tu contribución",
+            "Implementa la solución",
+            "Haz commit y push",
+            "Abre un Pull Request con descripción clara",
+            "Responde al code review",
+            "Recibe aprobación",
+            "Celebra tu merge 🎉"
+          ],
+          "duration": "45 min"
+        }
+      ],
+      "demos": [
+        {
+          "title": "Flujo completo exprés",
+          "description": "Repaso rápido de todo el flujo de contribución",
+          "code": "# FLUJO COMPLETO DE CONTRIBUCIÓN\n#\n# 1. Sincronizar fork\n# git checkout main\n# git pull upstream main\n# git push origin main\n#\n# 2. Crear rama\n# git checkout -b feature/mi-mejora\n#\n# 3. Hacer cambios\n# (editar archivos)\n#\n# 4. Commit y push\n# git add .\n# git commit -m \"Descripción clara del cambio\"\n# git push origin feature/mi-mejora\n#\n# 5. Abrir PR en GitHub\n# 6. Responder a code review\n# 7. Merge!\n#\n# Felicitaciones, eres contribuidor open source 🎉",
+          "duration": "10 min"
+        }
+      ],
+      "script": [
+        { "time": "0:00-0:10", "section": "Repaso rápido del flujo", "description": "Recordatorio de todo lo aprendido: fork, rama, PR, code review", "type": "intro" },
+        { "time": "0:10-0:15", "section": "Elegir un issue", "description": "Cada estudiante elige un issue en el que trabajar", "type": "explanation" },
+        { "time": "0:15-0:45", "section": "Tiempo de contribución", "description": "Estudiantes implementan su solución. Yo voy a ir pasando", "type": "practice" },
+        { "time": "0:45-1:00", "section": "Abrir PRs", "description": "Estudiantes abren sus Pull Requests", "type": "practice" },
+        { "time": "1:00-1:15", "section": "Code review en vivo", "description": "Revisar cada PR, dar feedback y aprobar", "type": "demo" },
+        { "time": "1:15-1:20", "section": "Merge de PRs aprobados", "description": "Mergear los PRs al repositorio principal 🎉", "type": "demo" },
+        { "time": "1:20-1:25", "section": "Celebración y reflexión", "description": "Cada estudiante comparte cómo se sintió. Captura de pantalla del merge", "type": "review" },
+        { "time": "1:25-1:30", "section": "Cierre del módulo", "description": "Ahora son contribuidores open source. Cómo seguir contribuyendo", "type": "closing" }
+      ],
+      "duration": "2h 30m"
+    }
+  ]
+}
