@@ -7,9 +7,7 @@ import { motion } from 'framer-motion';
 import {
   BookOpen,
   ChevronRight,
-  GraduationCap,
   Menu,
-  CheckCircle2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -32,21 +30,19 @@ export function AppSidebar({ mode }: AppSidebarProps) {
   const basePath = `/${mode}`;
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full">
-      <div className="p-4 border-b">
+    <div className="flex flex-col h-full overflow-hidden">
+      <div className="p-4 border-b shrink-0">
         <Link href={basePath} className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg devf-gradient flex items-center justify-center">
-            <GraduationCap className="h-5 w-5 text-white" />
-          </div>
-          <div>
-            <span className="font-bold text-sm">Dev.F</span>
-            <div className="text-xs text-muted-foreground capitalize">{mode}</div>
+          <img src="/logo-devf-white.svg" alt="Dev.F" className="h-8" />
+          <div className="min-w-0">
+            <span className="font-bold text-sm truncate block">Dev.F</span>
+            <div className="text-xs text-muted-foreground capitalize truncate">{mode}</div>
           </div>
         </Link>
       </div>
 
-      <ScrollArea className="flex-1 px-3 py-4">
-        <div className="space-y-6">
+      <ScrollArea className="flex-1">
+        <div className="px-3 py-4 space-y-6">
           {modules.map(mod => {
             const progress = getModuleProgress(mod.id, mod.lessons.length);
             const weeks = getLessonsByWeek(mod.id);
@@ -64,7 +60,7 @@ export function AppSidebar({ mode }: AppSidebarProps) {
                     <BookOpen className="h-4 w-4 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-sm truncate">{mod.title}</div>
-                      <div className="text-xs text-muted-foreground">
+                      <div className="text-xs text-muted-foreground truncate">
                         {mod.lessons.length} lecciones
                       </div>
                     </div>
@@ -82,7 +78,7 @@ export function AppSidebar({ mode }: AppSidebarProps) {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="ml-4 mt-2 space-y-3"
+                    className="ml-4 mt-2 space-y-3 overflow-hidden"
                   >
                     <Progress value={progress} className="h-1.5" />
 
@@ -100,16 +96,13 @@ export function AppSidebar({ mode }: AppSidebarProps) {
                               <Link key={lesson.id} href={lessonPath}>
                                 <div
                                   className={cn(
-                                    'flex items-center gap-2 px-2 py-1.5 rounded-md text-sm transition-colors cursor-pointer',
+                                    'flex items-center gap-2 px-2 py-1.5 rounded-md text-sm transition-colors cursor-pointer min-w-0',
                                     isLessonActive
                                       ? 'bg-accent font-medium'
                                       : 'hover:bg-accent/50 text-muted-foreground'
                                   )}
                                 >
-                                  {false && (
-                                    <CheckCircle2 className="h-3.5 w-3.5 text-green-500 shrink-0" />
-                                  )}
-                                  <span className="truncate">
+                                  <span className="truncate min-w-0">
                                     L{lesson.number}. {lesson.title}
                                   </span>
                                 </div>
@@ -134,17 +127,17 @@ export function AppSidebar({ mode }: AppSidebarProps) {
       {/* Mobile sidebar */}
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetTrigger asChild className="lg:hidden">
-          <Button variant="ghost" size="icon" className="h-9 w-9">
+          <Button variant="ghost" size="icon" className="h-9 w-9 shrink-0">
             <Menu className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="p-0 w-72">
+        <SheetContent side="left" className="p-0 max-w-[85vw] w-72">
           <SidebarContent />
         </SheetContent>
       </Sheet>
 
       {/* Desktop sidebar */}
-      <div className="hidden lg:flex w-64 shrink-0 border-r bg-card">
+      <div className="hidden lg:flex w-64 shrink-0 border-r bg-card overflow-hidden">
         <SidebarContent />
       </div>
     </>

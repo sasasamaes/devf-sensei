@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { GraduationCap, Users, BookOpen, ArrowRight } from 'lucide-react';
+import { Users, BookOpen, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function HomePage() {
@@ -31,8 +31,8 @@ export default function HomePage() {
         >
           {/* Logo */}
           <motion.div variants={item} className="space-y-4">
-            <div className="inline-flex h-16 w-16 rounded-2xl devf-gradient items-center justify-center shadow-lg">
-              <GraduationCap className="h-8 w-8 text-white" />
+            <div className="inline-flex items-center justify-center">
+              <img src="/logo-devf-white.svg" alt="Dev.F" className="h-16" />
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold">
               <span className="devf-text-gradient">Dev.F</span>

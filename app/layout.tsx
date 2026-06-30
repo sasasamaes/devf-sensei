@@ -18,6 +18,9 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Dev.F - Plataforma de Clases',
   description: 'Plataforma de presentación de clases para Dev.F',
+  icons: {
+    icon: '/logo-devf-white.svg',
+  },
 };
 
 export default function RootLayout({

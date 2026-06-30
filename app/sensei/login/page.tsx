@@ -9,7 +9,10 @@ export default function SenseiLoginPage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
-      <LoginForm redirect={redirect} />
+      <div className="flex flex-col items-center gap-6 w-full">
+        <img src="/logo-devf-white.svg" alt="Dev.F" className="h-12" />
+        <LoginForm redirect={redirect} />
+      </div>
     </div>
   );
 }
