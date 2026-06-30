@@ -9,6 +9,7 @@ import { ObjectivesList } from '@/components/shared/objectives-list';
 import { ProjectCard } from '@/components/shared/project-card';
 import { ClassContent } from '@/components/student/class-content';
 import { LessonNavigation } from '@/components/shared/lesson-navigation';
+import { StudentPresentationView } from '@/components/student/student-presentation-view';
 
 interface LessonPageProps {
   params: Promise<{ moduleId: string; lessonId: string }>;
@@ -48,6 +49,12 @@ export default function StudentLessonPage({ params }: LessonPageProps) {
         </div>
         <h1 className="text-3xl font-bold">{lesson.title}</h1>
       </div>
+
+      {/* Slides */}
+      <StudentPresentationView
+        moduleId={resolvedParams.moduleId}
+        lessonId={resolvedParams.lessonId}
+      />
 
       {/* Description */}
       <SectionBlock title="Descripción" icon={Pin}>
